@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreGraphics
-class PokemonCell: UICollectionViewCell {
+
+class PokemonCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var pokemonNameLabel: UILabel!

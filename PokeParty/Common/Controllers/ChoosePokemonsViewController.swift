@@ -91,30 +91,31 @@ class ChoosePokemonsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
-        titleLabel.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 12.0).active = true
-        titleLabel.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
-        
         view.addSubview(myPokemonsButton)
+        view.addSubview(pokemonsController.view)
+        view.addSubview(doneButton)
+
+        titleLabel.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 12.0).active = true
+        titleLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        
         myPokemonsButton.topAnchor.constraintEqualToAnchor(titleLabel.bottomAnchor, constant: 20.0).active = true
         myPokemonsButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
         myPokemonsButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0).active = true
         myPokemonsButton.heightAnchor.constraintEqualToConstant(44.0).active = true
         
         pokemonsController.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(pokemonsController.view)
         addChildViewController(pokemonsController)
+        pokemonsController.didMoveToParentViewController(self)
         pokemonsController.view.topAnchor.constraintEqualToAnchor(myPokemonsButton.bottomAnchor, constant: 12.0).active = true
         pokemonsController.view.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
         pokemonsController.view.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0).active = true
         
-        view.addSubview(doneButton)
         doneButton.topAnchor.constraintEqualToAnchor(pokemonsController.view.bottomAnchor, constant: 12.0).active = true
         doneButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
         doneButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0).active = true
-        doneButton.bottomAnchor.constraintEqualToAnchor(bottomLayoutGuide.topAnchor, constant: -12.0).active = true
+        doneButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -12.0).active = true
         doneButton.heightAnchor.constraintEqualToConstant(44.0).active = true
         
         myPokemonsButton.addTarget(self, action: #selector(onMyPokemonsSelected), forControlEvents: .TouchUpInside)
@@ -145,7 +146,8 @@ class ChoosePokemonsViewController: UIViewController {
     }
     
     @objc func onMyPokemonsSelected() {
-        
+        let myPokemonsVC = MyPokemonsViewController(pokemons: self.selectedPokemons, style: .Plain)
+        navigationController?.pushViewController(myPokemonsVC, animated: true)
     }
     
     required init?(coder aDecoder: NSCoder) {

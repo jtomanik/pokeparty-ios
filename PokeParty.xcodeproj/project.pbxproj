@@ -43,12 +43,12 @@
 		8B555FE41D423D6100D3978C /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FBF1D423D6100D3978C /* AccountService.swift */; };
 		8B555FE51D423D6100D3978C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC01D423D6100D3978C /* ImageService.swift */; };
 		8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */; };
-		BE631E801D42536600E7C8AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */; };
-		BE67E8CB1D429AED002761F0 /* PokePartyShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; };
-		BE67E8CC1D429AED002761F0 /* PokePartyShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BD68C5F1D426B3600C21725 /* CreateNewPartyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C5E1D426B3600C21725 /* CreateNewPartyCoordinator.swift */; };
 		8BD68C611D426C6000C21725 /* CreateNewPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C601D426C6000C21725 /* CreateNewPartyViewController.swift */; };
 		8BD68C631D42869700C21725 /* UIStackView+addArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C621D42869600C21725 /* UIStackView+addArrangedSubviews.swift */; };
+		BE631E801D42536600E7C8AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */; };
+		BE67E8CB1D429AED002761F0 /* PokePartyShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; };
+		BE67E8CC1D429AED002761F0 /* PokePartyShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,12 +106,12 @@
 		8B555FBF1D423D6100D3978C /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		8B555FC01D423D6100D3978C /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignOnViewController.swift; sourceTree = "<group>"; };
-		BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeParty-Bridging-Header.h"; sourceTree = "<group>"; };
-		BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = PokePartyShared.framework; path = "/Users/jarosawgliwinski/Library/Developer/Xcode/DerivedData/PokeParty-dkpmgqrbhnjusnfkpwkoderedxdt/Build/Products/Debug-iphoneos/PokePartyShared.framework"; sourceTree = "<absolute>"; };
 		8BD68C5E1D426B3600C21725 /* CreateNewPartyCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewPartyCoordinator.swift; sourceTree = "<group>"; };
 		8BD68C601D426C6000C21725 /* CreateNewPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewPartyViewController.swift; sourceTree = "<group>"; };
 		8BD68C621D42869600C21725 /* UIStackView+addArrangedSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangedSubviews.swift"; sourceTree = "<group>"; };
+		BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeParty-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokePartyShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

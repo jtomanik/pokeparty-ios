@@ -13,7 +13,7 @@ protocol OnboardingCoordinatorDelegate: class {
 }
 
 
-final class OnboardingCoordinator: Coordinator {
+final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
 
     private(set) var rootViewController: UIViewController
     var childCoordinators: [Coordinator]
@@ -28,7 +28,25 @@ final class OnboardingCoordinator: Coordinator {
         let googleSignOnViewController = GoogleSignOnViewController()
         rootViewController = googleSignOnViewController
         childCoordinators = []
+
+        super.init()
+
         googleSignOnViewController.delegate = self
+        GIDSignIn.sharedInstance().delegate = self
+    }
+
+    @objc func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+        if (error == nil) {
+            let userId = user.userID                  // For client-side use only! (haha)
+            print(userId)
+            // TODO: login request to backend
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+
+    @objc func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
+        // unused, but required by GIDSignInDelegate
     }
 }
 
@@ -36,6 +54,6 @@ final class OnboardingCoordinator: Coordinator {
 extension OnboardingCoordinator: GoogleSignOnViewControllerDelegate {
 
     func googleSignOnViewControllerDidSignOn(viewController: GoogleSignOnViewController) {
-        // networking
+        GIDSignIn.sharedInstance().signIn()
     }
 }

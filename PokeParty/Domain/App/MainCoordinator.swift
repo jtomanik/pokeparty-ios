@@ -28,18 +28,21 @@ final class MainCoordinator: Coordinator {
         self.accountData = accountData
         self.accountService = AccountService(dataProvider: accountData)
         
-//        if accountData.isLoggedIn {
-            let loginCoordinator = LoginCoordinator(accountService: AccountService(dataProvider: accountData))
-            rootViewController = loginCoordinator.rootViewController
-            childCoordinators = [loginCoordinator]
-            loginCoordinator.delegate = self
-//        }
+        if accountData.isLoggedIn {
+            rootViewController = UIViewController()
+            childCoordinators = []
+        } else {
+            let onboardingCoordinator = OnboardingCoordinator(accountService: AccountService(dataProvider: accountData))
+            rootViewController = onboardingCoordinator.rootViewController
+            childCoordinators = [onboardingCoordinator]
+            onboardingCoordinator.delegate = self
+        }
     }
 
     // MARK: - Authentication Notification
 
-    func showLogin() {
-        let loginCoordinator = LoginCoordinator(accountService: AccountService(dataProvider: accountData))
+    func showSignOn() {
+        let loginCoordinator = OnboardingCoordinator(accountService: AccountService(dataProvider: accountData))
         loginCoordinator.delegate = self
 
         childCoordinators.append(loginCoordinator)
@@ -50,10 +53,10 @@ final class MainCoordinator: Coordinator {
 }
 
 
-extension MainCoordinator: LoginCoordinatorDelegate {
+extension MainCoordinator: OnboardingCoordinatorDelegate {
 
-    func loginCoordinatorDidLogin(loginCoordinator: LoginCoordinator) {
-        removeChildCoordinator(loginCoordinator)
+    func onboardingCoordinatorDidLogin(onboardingCoordinator: OnboardingCoordinator) {
+        removeChildCoordinator(onboardingCoordinator)
         // do something
     }
 }

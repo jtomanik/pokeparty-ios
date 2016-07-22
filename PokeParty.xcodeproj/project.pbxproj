@@ -49,8 +49,24 @@
 		8B555FE71D423D6100D3978C /* FormViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC41D423D6100D3978C /* FormViewFactory.swift */; };
 		8B555FE81D423D6100D3978C /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC51D423D6100D3978C /* SeparatorLine.swift */; };
 		8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */; };
+		BE1DECF91D428FCD00967B00 /* PokePartyShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1DECF81D428FCD00967B00 /* PokePartyShared.framework */; };
+		BE1DECFA1D428FCD00967B00 /* PokePartyShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE1DECF81D428FCD00967B00 /* PokePartyShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE631E801D42536600E7C8AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE1DECFB1D428FCD00967B00 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE1DECFA1D428FCD00967B00 /* PokePartyShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1BB1B1C91D4268EA00C158AF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = PokeParty/Localizable.strings; sourceTree = SOURCE_ROOT; };
@@ -98,6 +114,7 @@
 		8B555FC41D423D6100D3978C /* FormViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewFactory.swift; sourceTree = "<group>"; };
 		8B555FC51D423D6100D3978C /* SeparatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignOnViewController.swift; sourceTree = "<group>"; };
+		BE1DECF81D428FCD00967B00 /* PokePartyShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = PokePartyShared.framework; path = "/Users/jarosawgliwinski/Library/Developer/Xcode/DerivedData/PokeParty-dkpmgqrbhnjusnfkpwkoderedxdt/Build/Products/Debug/PokePartyShared.framework"; sourceTree = "<absolute>"; };
 		BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeParty-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA4391EC4DD1F6A1624F8CF /* Pods_PokeParty.framework in Frameworks */,
+				BE1DECF91D428FCD00967B00 /* PokePartyShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +153,7 @@
 		8B555F731D423D1100D3978C = {
 			isa = PBXGroup;
 			children = (
+				BE1DECF81D428FCD00967B00 /* PokePartyShared.framework */,
 				75B9413662F1D5C462A03015 /* Frameworks */,
 				831495FC312A43BFC9575805 /* Pods */,
 				8B555F7E1D423D1100D3978C /* PokeParty */,
@@ -369,6 +388,7 @@
 				9824BD8588149ADA94EA6F45 /* [CP] Copy Pods Resources */,
 				23D679C6211469C8B501BEF8 /* 📦 Embed Pods Frameworks */,
 				B910E760C517E9EE45B4A2DE /* 📦 Copy Pods Resources */,
+				BE1DECFB1D428FCD00967B00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

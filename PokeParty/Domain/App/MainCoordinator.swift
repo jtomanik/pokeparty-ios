@@ -57,7 +57,7 @@ final class MainCoordinator: Coordinator {
 
 extension MainCoordinator: OnboardingCoordinatorDelegate {
 
-    func onboardingCoordinatorDidLogin(onboardingCoordinator: OnboardingCoordinator) {
+    func onboardingCoordinatorFinishFlow(onboardingCoordinator: OnboardingCoordinator) {
         removeChildCoordinator(onboardingCoordinator)
         let homeViewController = HomeViewController()
         homeViewController.delegate = self

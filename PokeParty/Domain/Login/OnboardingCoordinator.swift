@@ -9,11 +9,11 @@
 import UIKit
 
 protocol OnboardingCoordinatorDelegate: class {
-    func onboardingCoordinatorDidLogin(onboardingCoordinator: OnboardingCoordinator)
+    func onboardingCoordinatorFinishFlow(onboardingCoordinator: OnboardingCoordinator)
 }
 
 
-final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
+final class OnboardingCoordinator: NSObject, NavigationCoordinator, GIDSignInDelegate {
 
     private(set) var rootViewController: UIViewController
     var childCoordinators: [Coordinator]
@@ -27,7 +27,7 @@ final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
         self.accountService = accountService
 
         let googleSignOnViewController = GoogleSignOnViewController()
-        rootViewController = googleSignOnViewController
+        rootViewController = NavigationController(rootViewController: googleSignOnViewController)
         childCoordinators = []
 
         super.init()
@@ -42,8 +42,15 @@ final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
 
 
             // TODO: login request to backend
-            accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
-            delegate?.onboardingCoordinatorDidLogin(self)
+
+
+            let setupProfileViewController = SetupProfileViewController()
+            setupProfileViewController.delegate = self
+            navigationController.pushViewController(setupProfileViewController, animated: true)
+
+
+//            accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
+//            delegate?.onboardingCoordinatorFinishFlow(self)
         } else {
             print("\(error.localizedDescription)")
         }
@@ -59,5 +66,24 @@ extension OnboardingCoordinator: GoogleSignOnViewControllerDelegate {
 
     func googleSignOnViewControllerDidSignOn(viewController: GoogleSignOnViewController) {
         GIDSignIn.sharedInstance().signIn()
+    }
+}
+
+
+extension OnboardingCoordinator: SetupProfileViewControllerDelegate {
+
+    func setupProfileViewControllerWantsToAddPokemon(viewController: SetupProfileViewController) {
+        let choosePokemonViewController = ChoosePokemonsViewController(teamColor: UIColor.appTeamColor())
+        choosePokemonViewController.delegate = self
+        navigationController.pushViewController(choosePokemonViewController, animated: true)
+    }
+}
+
+
+extension OnboardingCoordinator: ChoosePokemonsViewControllerDelegate {
+
+    func choosePokemonsViewControllerDidTapDoneButton(viewController: ChoosePokemonsViewController) {
+        // do some stuff, update account etc
+        delegate?.onboardingCoordinatorFinishFlow(self)
     }
 }

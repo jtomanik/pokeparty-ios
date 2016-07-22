@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Pokemon {
+struct Pokemon: Hashable {
     let number: Int
     let combatPower: Int
     
@@ -19,6 +19,14 @@ struct Pokemon {
     var image: UIImage {
         return UIImage(named: "pokemon_\(number)")!
     }
+    
+    var hashValue: Int {
+        return number
+    }
+}
+
+func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
+    return lhs.number == rhs.number
 }
 
 struct PokemonsLists {
@@ -37,6 +45,24 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
     private let pokemonsLists = PokemonsLists()
     
     var onPokemonSelected: (Pokemon -> Void)?
+    var onPokemonDeselected: (Pokemon -> Void)?
+    
+    private(set) var selectedPokemons = Set<Pokemon>()
+    
+    private func selectPokemon(pokemon: Pokemon) {
+        selectedPokemons.insert(pokemon)
+    }
+    
+    var teamColor: UIColor
+    
+    init(teamColor: UIColor) {        
+        self.teamColor = teamColor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +94,8 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
         let pokemon = pokemonsLists.pokemons[indexPath.row]
         cell.pokemonImageView.image = pokemon.image
         cell.pokemonNameLabel.text = pokemon.name
+        cell.choosedPokemonColor = teamColor
+        cell.choosedPokemon = selectedPokemons.contains(pokemon)
         return cell
     }
     
@@ -77,8 +105,15 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
         return CGSize(width: cellWidth , height: cellWidth * 1.4)
     }
 
-
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        onPokemonSelected?(pokemonsLists.pokemons[indexPath.row])
+        let pokemon = pokemonsLists.pokemons[indexPath.row]
+        if selectedPokemons.contains(pokemon) {
+            selectedPokemons.remove(pokemon)
+            onPokemonDeselected?(pokemon)
+        } else {
+            selectedPokemons.insert(pokemon)
+            onPokemonSelected?(pokemon)
+        }
+        collectionView.reloadData()
     }
 }

@@ -10,6 +10,12 @@
 
 typealias AccountDataDictionary = [String: AnyObject]
 
+enum Team: String {
+    case Valor
+    case Mystic
+    case Instinct
+}
+
 
 protocol AccountDataProvider: class {
     var accountData: AccountDataDictionary? { get set }
@@ -17,6 +23,7 @@ protocol AccountDataProvider: class {
     var refreshToken: String? { get }
     var isLoggedIn: Bool { get }
     var userId: String? { get }
+    var userTeam: Team? { get set }
 
     func set(data dataDictionary: AccountDataDictionary)
     func clear(asExplicitLogout byUser: Bool)
@@ -31,6 +38,19 @@ extension AccountDataProvider {
             return "fixme"
         } catch {
             fatalError("Erroneous JWT")
+        }
+    }
+
+    var userTeam: Team? {
+        get {
+            if let string = accountData?["com.tooploox.apps.userTeam"] as? String {
+                return Team(rawValue: string)
+            } else {
+                return nil
+            }
+        }
+        set {
+            accountData?["com.tooploox.apps.userTeam"] = newValue?.rawValue
         }
     }
 

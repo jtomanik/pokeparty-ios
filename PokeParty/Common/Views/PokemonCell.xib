@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JTL-vS-7a7" customClass="PokemonCell" customModule="PokeParty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Urv-Es-8Yv">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Urv-Es-8Yv" secondAttribute="height" multiplier="1:1" id="uHt-th-m5F"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikachu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RW2-lZ-MTG">
+                        <rect key="frame" x="4" y="104" width="92" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RW2-lZ-MTG" secondAttribute="trailing" constant="4" id="9Ej-dt-e3W"/>
+                <constraint firstAttribute="trailing" secondItem="Urv-Es-8Yv" secondAttribute="trailing" id="A4Z-5c-dVx"/>
+                <constraint firstItem="RW2-lZ-MTG" firstAttribute="leading" secondItem="JTL-vS-7a7" secondAttribute="leading" constant="4" id="k8M-n8-3gf"/>
+                <constraint firstItem="Urv-Es-8Yv" firstAttribute="leading" secondItem="JTL-vS-7a7" secondAttribute="leading" id="lj8-99-dni"/>
+                <constraint firstItem="Urv-Es-8Yv" firstAttribute="top" secondItem="JTL-vS-7a7" secondAttribute="top" id="rt5-eY-7M5"/>
+                <constraint firstItem="RW2-lZ-MTG" firstAttribute="top" secondItem="Urv-Es-8Yv" secondAttribute="bottom" constant="4" id="vaE-EB-6kB"/>
+                <constraint firstAttribute="bottom" secondItem="RW2-lZ-MTG" secondAttribute="bottom" constant="4" id="vn5-0T-r43"/>
+            </constraints>
+            <size key="customSize" width="93" height="92"/>
+            <connections>
+                <outlet property="pokemonImageView" destination="Urv-Es-8Yv" id="eHi-Mg-tJ5"/>
+                <outlet property="pokemonNameLabel" destination="RW2-lZ-MTG" id="lb8-Cb-kxH"/>
+            </connections>
+            <point key="canvasLocation" x="-349" y="241"/>
+        </collectionViewCell>
+    </objects>
+</document>

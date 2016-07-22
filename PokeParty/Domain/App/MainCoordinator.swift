@@ -33,7 +33,7 @@ final class MainCoordinator: Coordinator {
             childCoordinators = []
         } else {
             let onboardingCoordinator = OnboardingCoordinator(accountService: AccountService(dataProvider: accountData))
-            rootViewController = onboardingCoordinator.rootViewController
+            rootViewController = ChoosePokemonsViewController(teamColor: UIColor.blueColor())
             childCoordinators = [onboardingCoordinator]
             onboardingCoordinator.delegate = self
         }

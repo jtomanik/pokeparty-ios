@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PokePartyShared
 
 class MyPokemonsViewController: UITableViewController {
     

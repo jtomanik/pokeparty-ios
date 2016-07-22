@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PokePartyShared
 
 protocol TeamSelectButtonViewDelegate: class {
     func didTap(button: TeamSelectButtonView)

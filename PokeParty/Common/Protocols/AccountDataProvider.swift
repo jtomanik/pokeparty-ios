@@ -7,14 +7,10 @@
 //
 
 //import JWTDecode
+import PokePartyShared
+
 
 typealias AccountDataDictionary = [String: AnyObject]
-
-enum Team: String {
-    case Valor
-    case Mystic
-    case Instinct
-}
 
 
 protocol AccountDataProvider: class {

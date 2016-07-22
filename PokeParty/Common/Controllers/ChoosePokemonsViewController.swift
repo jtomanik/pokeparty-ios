@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreGraphics
+import PokePartyShared
+
 
 class ChoosePokemonsViewController: UIViewController {
 

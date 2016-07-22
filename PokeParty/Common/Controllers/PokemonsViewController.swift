@@ -7,27 +7,8 @@
 //
 
 import UIKit
+import PokePartyShared
 
-struct Pokemon: Hashable {
-    let number: Int
-    let combatPower: Int
-    
-    var name: String {
-        return NSLocalizedString("p_\(number)", comment: "")
-    }
-    
-    var image: UIImage {
-        return UIImage(named: "pokemon_\(number)")!
-    }
-    
-    var hashValue: Int {
-        return number
-    }
-}
-
-func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
-    return lhs.number == rhs.number
-}
 
 struct PokemonsLists {
     

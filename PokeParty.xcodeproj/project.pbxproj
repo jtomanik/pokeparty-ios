@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BB1B1CA1D4268EA00C158AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BB1B1C91D4268EA00C158AF /* Localizable.strings */; };
 		4AA4391EC4DD1F6A1624F8CF /* Pods_PokeParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FC1537C1A863C2A7D279A6 /* Pods_PokeParty.framework */; };
 		8B555F801D423D1100D3978C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F7F1D423D1100D3978C /* AppDelegate.swift */; };
 		8B555F821D423D1100D3978C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F811D423D1100D3978C /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BB1B1C91D4268EA00C158AF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = PokeParty/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		57CE084EBEF115992676E7C8 /* Pods-PokeParty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.release.xcconfig"; sourceTree = "<group>"; };
 		88FC1537C1A863C2A7D279A6 /* Pods_PokeParty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeParty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B555F7C1D423D1100D3978C /* PokeParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 		8B555F911D423D6100D3978C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BB1B1C91D4268EA00C158AF /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -341,12 +344,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B555F8E1D423D1100D3978C /* Build configuration list for PBXNativeTarget "PokeParty" */;
 			buildPhases = (
-				7F0A3F083353740B52C37181 /* 📦 Check Pods Manifest.lock */,
+				7F0A3F083353740B52C37181 /* [CP] Check Pods Manifest.lock */,
 				8B555F781D423D1100D3978C /* Sources */,
 				8B555F791D423D1100D3978C /* Frameworks */,
 				8B555F7A1D423D1100D3978C /* Resources */,
-				E98FFBCDA442D933D904FDDC /* 📦 Embed Pods Frameworks */,
-				9824BD8588149ADA94EA6F45 /* 📦 Copy Pods Resources */,
+				E98FFBCDA442D933D904FDDC /* [CP] Embed Pods Frameworks */,
+				9824BD8588149ADA94EA6F45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B555F8A1D423D1100D3978C /* LaunchScreen.storyboard in Resources */,
+				1BB1B1CA1D4268EA00C158AF /* Localizable.strings in Resources */,
 				8B555F871D423D1100D3978C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,14 +407,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7F0A3F083353740B52C37181 /* 📦 Check Pods Manifest.lock */ = {
+		7F0A3F083353740B52C37181 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,14 +422,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9824BD8588149ADA94EA6F45 /* 📦 Copy Pods Resources */ = {
+		9824BD8588149ADA94EA6F45 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,14 +437,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E98FFBCDA442D933D904FDDC /* 📦 Embed Pods Frameworks */ = {
+		E98FFBCDA442D933D904FDDC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

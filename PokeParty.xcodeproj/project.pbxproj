@@ -15,7 +15,7 @@
 		8B555F8A1D423D1100D3978C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B555F881D423D1100D3978C /* LaunchScreen.storyboard */; };
 		8B555FC61D423D6100D3978C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F941D423D6100D3978C /* MainCoordinator.swift */; };
 		8B555FC71D423D6100D3978C /* WorkflowTabsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F951D423D6100D3978C /* WorkflowTabsCoordinator.swift */; };
-		8B555FC81D423D6100D3978C /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F971D423D6100D3978C /* LoginCoordinator.swift */; };
+		8B555FC81D423D6100D3978C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F971D423D6100D3978C /* OnboardingCoordinator.swift */; };
 		8B555FC91D423D6100D3978C /* LoginFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F981D423D6100D3978C /* LoginFormsView.swift */; };
 		8B555FCA1D423D6100D3978C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F991D423D6100D3978C /* LoginViewController.swift */; };
 		8B555FCB1D423D6100D3978C /* AccountDataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F9C1D423D6100D3978C /* AccountDataProviderFactory.swift */; };
@@ -48,6 +48,7 @@
 		8B555FE61D423D6100D3978C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC31D423D6100D3978C /* FormView.swift */; };
 		8B555FE71D423D6100D3978C /* FormViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC41D423D6100D3978C /* FormViewFactory.swift */; };
 		8B555FE81D423D6100D3978C /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC51D423D6100D3978C /* SeparatorLine.swift */; };
+		8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +63,7 @@
 		8B555F8B1D423D1100D3978C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B555F941D423D6100D3978C /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8B555F951D423D6100D3978C /* WorkflowTabsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkflowTabsCoordinator.swift; sourceTree = "<group>"; };
-		8B555F971D423D6100D3978C /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		8B555F971D423D6100D3978C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingCoordinator.swift; path = Login/OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		8B555F981D423D6100D3978C /* LoginFormsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormsView.swift; sourceTree = "<group>"; };
 		8B555F991D423D6100D3978C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8B555F9C1D423D6100D3978C /* AccountDataProviderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataProviderFactory.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		8B555FC31D423D6100D3978C /* FormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		8B555FC41D423D6100D3978C /* FormViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewFactory.swift; sourceTree = "<group>"; };
 		8B555FC51D423D6100D3978C /* SeparatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
+		8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignOnViewController.swift; sourceTree = "<group>"; };
 		EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 		8B555F921D423D6100D3978C /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				8BD68C581D4253E900C21725 /* Onboarding */,
 				8B555F931D423D6100D3978C /* App */,
 				8B555F961D423D6100D3978C /* Login */,
 			);
@@ -189,7 +192,6 @@
 		8B555F961D423D6100D3978C /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				8B555F971D423D6100D3978C /* LoginCoordinator.swift */,
 				8B555F981D423D6100D3978C /* LoginFormsView.swift */,
 				8B555F991D423D6100D3978C /* LoginViewController.swift */,
 			);
@@ -337,6 +339,15 @@
 			path = Form;
 			sourceTree = "<group>";
 		};
+		8BD68C581D4253E900C21725 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8B555F971D423D6100D3978C /* OnboardingCoordinator.swift */,
+				8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,8 +486,9 @@
 				8B555FD51D423D6100D3978C /* NSDate+Helpers.swift in Sources */,
 				8B555FE51D423D6100D3978C /* ImageService.swift in Sources */,
 				8B555FC71D423D6100D3978C /* WorkflowTabsCoordinator.swift in Sources */,
-				8B555FC81D423D6100D3978C /* LoginCoordinator.swift in Sources */,
+				8B555FC81D423D6100D3978C /* OnboardingCoordinator.swift in Sources */,
 				8B555FE01D423D6100D3978C /* CustomScheme.swift in Sources */,
+				8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */,
 				8B555FDC1D423D6100D3978C /* DateFormatter.swift in Sources */,
 				8B555FD31D423D6100D3978C /* UIScrollView+Keyboard.swift in Sources */,
 				8B555FE21D423D6100D3978C /* UrlType.swift in Sources */,

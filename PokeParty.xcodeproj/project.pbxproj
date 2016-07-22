@@ -50,6 +50,7 @@
 		BE67E8CB1D429AED002761F0 /* PokePartyShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; };
 		BE67E8CC1D429AED002761F0 /* PokePartyShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE67E8D11D42ABEB002761F0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE67E8D01D42ABEB002761F0 /* Pokemon.swift */; };
+		8BD68C651D429A3300C21725 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C641D429A3300C21725 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +115,7 @@
 		BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeParty-Bridging-Header.h"; sourceTree = "<group>"; };
 		BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokePartyShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE67E8D01D42ABEB002761F0 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		8BD68C641D429A3300C21725 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				8B555F941D423D6100D3978C /* MainCoordinator.swift */,
+				8BD68C641D429A3300C21725 /* HomeViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				8B555FCF1D423D6100D3978C /* NavigationController.swift in Sources */,
 				8B555FCE1D423D6100D3978C /* InNavigationCoordinator.swift in Sources */,
 				8BD68C611D426C6000C21725 /* CreateNewPartyViewController.swift in Sources */,
+				8BD68C651D429A3300C21725 /* HomeViewController.swift in Sources */,
 				8B555FD01D423D6100D3978C /* NavigationCoordinator.swift in Sources */,
 				8BD68C5F1D426B3600C21725 /* CreateNewPartyCoordinator.swift in Sources */,
 				8B555F821D423D1100D3978C /* ViewController.swift in Sources */,

@@ -36,14 +36,14 @@ struct Constants {
 
     struct Account {
 
-        static let didLogoutByUserNotification = "com.nowthisnews.switchboard.account.didLogoutByUserNotification"
-        static let didLogoutNotification = "com.nowthisnews.switchboard.account.didLogoutNotification"
+        static let didLogoutByUserNotification = "com.tooploox.apps.PokeParty.account.didLogoutByUserNotification"
+        static let didLogoutNotification = "com.tooploox.apps.PokeParty.account.didLogoutNotification"
 
-        static let isLoggedInKey = "com.nowthisnews.switchboard.account.isLoggedIn"
-        static let userDefaultsAccountDataKey = "com.nowthisnews.switchboard.account.accountData"
-        static let accessTokenKey = "com.nowthisnews.switchboard.account.accessToken"
-        static let refreshTokenKey = "com.nowthisnews.switchboard.account.refreshToken"
-        static let idTokenKey = "com.nowthisnews.switchboard.account.idToken"
-        static let keychainUserAccountKey = "com.nowthisnews.switchboard.account.keychainUserAccount"
+        static let isLoggedInKey = "com.tooploox.apps.PokeParty.account.isLoggedIn"
+        static let userDefaultsAccountDataKey = "com.tooploox.apps.PokeParty.account.accountData"
+        static let accessTokenKey = "com.tooploox.apps.PokeParty.account.accessToken"
+        static let refreshTokenKey = "com.tooploox.apps.PokeParty.account.refreshToken"
+        static let idTokenKey = "com.tooploox.apps.PokeParty.account.idToken"
+        static let keychainUserAccountKey = "com.tooploox.apps.PokeParty.account.keychainUserAccount"
     }
 }

@@ -23,6 +23,7 @@ final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
     private let accountDataProvider = AccountDataProviderFactory.userDefaultsAccountDataProvider()
 
     init(accountService: AccountService) {
+        accountDataProvider.clear(asExplicitLogout: true)
         self.accountService = accountService
 
         let googleSignOnViewController = GoogleSignOnViewController()
@@ -38,8 +39,11 @@ final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
     @objc func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if (error == nil) {
             let userId = user.userID                  // For client-side use only! (haha)
-            print(userId)
+
+
             // TODO: login request to backend
+            accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
+            delegate?.onboardingCoordinatorDidLogin(self)
         } else {
             print("\(error.localizedDescription)")
         }

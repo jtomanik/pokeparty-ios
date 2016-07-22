@@ -17,7 +17,11 @@ class GoogleSignOnViewController: UIViewController, GIDSignInUIDelegate {
     private lazy var googleSignOnButton: UIButton = {
         let button = UIButton()
         button.setTitle("Google sign on", forState: .Normal)
-        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.layer.cornerRadius = 3.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         button.addTarget(self, action: #selector(onGoogleSignOn), forControlEvents: .TouchUpInside)
         return button
     }()
@@ -27,6 +31,7 @@ class GoogleSignOnViewController: UIViewController, GIDSignInUIDelegate {
     override func loadView() {
         view = UIView()
         setupGoogleSignOnButton()
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
     }
 
     override func viewDidLoad() {
@@ -39,10 +44,10 @@ class GoogleSignOnViewController: UIViewController, GIDSignInUIDelegate {
         view.addSubview(googleSignOnButton)
         googleSignOnButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activateConstraints([
-            googleSignOnButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-            googleSignOnButton.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
-            googleSignOnButton.heightAnchor.constraintEqualToConstant(100.0),
-            googleSignOnButton.widthAnchor.constraintEqualToConstant(100.0)
+            googleSignOnButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 50.0),
+            googleSignOnButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -50.0),
+            googleSignOnButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -50.0),
+            googleSignOnButton.heightAnchor.constraintEqualToConstant(60.0),
         ])
     }
 

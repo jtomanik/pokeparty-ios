@@ -28,12 +28,14 @@ final class MainCoordinator: Coordinator {
         self.accountData = accountData
         self.accountService = AccountService(dataProvider: accountData)
         
-        if accountData.isLoggedIn {
-            rootViewController = UIViewController()
+        if false {
+            let homeViewController = HomeViewController()
+            rootViewController = homeViewController
             childCoordinators = []
+            homeViewController.delegate = self
         } else {
             let onboardingCoordinator = OnboardingCoordinator(accountService: AccountService(dataProvider: accountData))
-            rootViewController = ChoosePokemonsViewController(teamColor: UIColor.blueColor())
+            rootViewController = onboardingCoordinator.rootViewController
             childCoordinators = [onboardingCoordinator]
             onboardingCoordinator.delegate = self
         }
@@ -57,6 +59,17 @@ extension MainCoordinator: OnboardingCoordinatorDelegate {
 
     func onboardingCoordinatorDidLogin(onboardingCoordinator: OnboardingCoordinator) {
         removeChildCoordinator(onboardingCoordinator)
-        // do something
+        let homeViewController = HomeViewController()
+        homeViewController.delegate = self
+        rootViewController = homeViewController
+        delegate?.mainCoordinator(self, hasNewRootViewController: rootViewController)
+    }
+}
+
+extension MainCoordinator: HomeViewControllerDelegate {
+
+    func homeViewControllerWantsToCreateNewParty(viewController: HomeViewController) {
+        let createNewPartyCoordinator = CreateNewPartyCoordinator()
+        presentCoordinator(createNewPartyCoordinator)
     }
 }

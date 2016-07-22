@@ -15,6 +15,6 @@ class CreateNewPartyCoordinator: NavigationCoordinator {
     var childCoordinators: [Coordinator] = []
 
     init() {
-        rootViewController = UIViewController()
+        rootViewController = CreateNewPartyViewController()
     }
 }

@@ -39,7 +39,19 @@ extension UIColor {
     }
 
     class func appLightBackgorundColor() -> UIColor {
-        return UIColor(red: 245.0 / 255.0, green: 245.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 238.0 / 255.0, green: 238.0 / 255.0, blue: 243.0 / 255.0, alpha: 1.0)
+    }
+
+    class func appButtonBorderYellowColor() -> UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 203.0 / 255.0, blue: 5.0 / 255.0, alpha: 1.0)
+    }
+
+    class func appButtonBackgroundBlueColor() -> UIColor {
+        return UIColor(red: 51.0 / 255.0, green: 103.0 / 255.0, blue: 176.0 / 255.0, alpha: 1.0)
+    }
+
+    class func appSplashScreenBackgroundColor() -> UIColor {
+        return UIColor(red: 29.0 / 255.0, green: 44.0 / 255.0, blue: 94.0 / 255.0, alpha: 1.0)
     }
 
 }

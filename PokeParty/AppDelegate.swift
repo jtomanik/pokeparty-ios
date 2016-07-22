@@ -56,6 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: MainCoordinatorDelegate {
     func mainCoordinator(mainCooordinator: MainCoordinator, hasNewRootViewController rootViewController: UIViewController) {
-        //
+        guard let window = window else {
+            fatalError("Window not found")
+        }
+
+        UIView.transitionWithView(window, duration: 0.4, options: .TransitionFlipFromLeft, animations: {
+            window.rootViewController = rootViewController
+        }, completion: nil)
     }
 }

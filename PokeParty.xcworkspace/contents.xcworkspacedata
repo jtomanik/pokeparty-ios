@@ -5,6 +5,9 @@
       location = "group:PokeParty.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../pokeparty-shared/PokePartyShared.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

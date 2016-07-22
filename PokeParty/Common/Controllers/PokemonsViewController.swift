@@ -68,7 +68,7 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerNib(
-            UINib(nibName: "PokemonCell", bundle: nil),
+            UINib(nibName: "PokemonCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: "pokemonCell"
         )
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +84,7 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("pokemonCell", forIndexPath: indexPath) as! PokemonCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("pokemonCell", forIndexPath: indexPath) as! PokemonCollectionViewCell
         let pokemon = pokemonsLists.pokemons[indexPath.row]
         cell.pokemonImageView.image = pokemon.image
         cell.pokemonNameLabel.text = pokemon.name

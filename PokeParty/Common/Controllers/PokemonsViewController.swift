@@ -47,12 +47,6 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
     var onPokemonSelected: (Pokemon -> Void)?
     var onPokemonDeselected: (Pokemon -> Void)?
     
-    private(set) var selectedPokemons = Set<Pokemon>()
-    
-    private func selectPokemon(pokemon: Pokemon) {
-        selectedPokemons.insert(pokemon)
-    }
-    
     var teamColor: UIColor
     
     init(teamColor: UIColor) {        
@@ -95,7 +89,6 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.pokemonImageView.image = pokemon.image
         cell.pokemonNameLabel.text = pokemon.name
         cell.choosedPokemonColor = teamColor
-        cell.choosedPokemon = selectedPokemons.contains(pokemon)
         return cell
     }
     
@@ -107,13 +100,7 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let pokemon = pokemonsLists.pokemons[indexPath.row]
-        if selectedPokemons.contains(pokemon) {
-            selectedPokemons.remove(pokemon)
-            onPokemonDeselected?(pokemon)
-        } else {
-            selectedPokemons.insert(pokemon)
-            onPokemonSelected?(pokemon)
-        }
+        onPokemonSelected?(pokemon)        
         collectionView.reloadData()
     }
 }

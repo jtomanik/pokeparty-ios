@@ -49,6 +49,7 @@
 		8B555FE71D423D6100D3978C /* FormViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC41D423D6100D3978C /* FormViewFactory.swift */; };
 		8B555FE81D423D6100D3978C /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC51D423D6100D3978C /* SeparatorLine.swift */; };
 		8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */; };
+		BE631E801D42536600E7C8AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		8B555FC41D423D6100D3978C /* FormViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewFactory.swift; sourceTree = "<group>"; };
 		8B555FC51D423D6100D3978C /* SeparatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignOnViewController.swift; sourceTree = "<group>"; };
+		BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeParty-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +161,8 @@
 				8B555F8B1D423D1100D3978C /* Info.plist */,
 				8B555F881D423D1100D3978C /* LaunchScreen.storyboard */,
 				8B555F811D423D1100D3978C /* ViewController.swift */,
+				BE631E7F1D42536600E7C8AA /* GoogleService-Info.plist */,
+				BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */,
 			);
 			path = PokeParty;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				8B555F8A1D423D1100D3978C /* LaunchScreen.storyboard in Resources */,
 				1BB1B1CA1D4268EA00C158AF /* Localizable.strings in Resources */,
 				8B555F871D423D1100D3978C /* Assets.xcassets in Resources */,
+				BE631E801D42536600E7C8AA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,10 +620,13 @@
 			baseConfigurationReference = EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PokeParty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tooploox.apps.PokeParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PokeParty/PokeParty-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -626,10 +635,12 @@
 			baseConfigurationReference = 57CE084EBEF115992676E7C8 /* Pods-PokeParty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PokeParty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tooploox.apps.PokeParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PokeParty/PokeParty-Bridging-Header.h";
 			};
 			name = Release;
 		};

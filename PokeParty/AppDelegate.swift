@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -28,17 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
-
-        GIDSignIn.sharedInstance().delegate = self
-    }
-
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-        if (error == nil) {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only! (haha)
-        } else {
-            print("\(error.localizedDescription)")
-        }
     }
 
     func application(application: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {

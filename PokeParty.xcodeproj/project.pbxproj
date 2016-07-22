@@ -360,12 +360,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B555F8E1D423D1100D3978C /* Build configuration list for PBXNativeTarget "PokeParty" */;
 			buildPhases = (
+				BC5D35A94B8ED416A404A441 /* [CP] Check Pods Manifest.lock */,
 				7F0A3F083353740B52C37181 /* [CP] Check Pods Manifest.lock */,
 				8B555F781D423D1100D3978C /* Sources */,
 				8B555F791D423D1100D3978C /* Frameworks */,
 				8B555F7A1D423D1100D3978C /* Resources */,
 				E98FFBCDA442D933D904FDDC /* [CP] Embed Pods Frameworks */,
 				9824BD8588149ADA94EA6F45 /* [CP] Copy Pods Resources */,
+				23D679C6211469C8B501BEF8 /* 📦 Embed Pods Frameworks */,
+				B910E760C517E9EE45B4A2DE /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,6 +427,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		23D679C6211469C8B501BEF8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7F0A3F083353740B52C37181 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +470,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B910E760C517E9EE45B4A2DE /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC5D35A94B8ED416A404A441 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E98FFBCDA442D933D904FDDC /* [CP] Embed Pods Frameworks */ = {

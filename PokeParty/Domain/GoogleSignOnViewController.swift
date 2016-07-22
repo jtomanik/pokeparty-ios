@@ -12,7 +12,7 @@ protocol GoogleSignOnViewControllerDelegate: class {
     func googleSignOnViewControllerDidSignOn(viewController: GoogleSignOnViewController)
 }
 
-class GoogleSignOnViewController: UIViewController {
+class GoogleSignOnViewController: UIViewController, GIDSignInUIDelegate {
 
     private lazy var googleSignOnButton: UIButton = {
         let button = UIButton()
@@ -27,6 +27,12 @@ class GoogleSignOnViewController: UIViewController {
     override func loadView() {
         view = UIView()
         setupGoogleSignOnButton()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
 
     private func setupGoogleSignOnButton() {

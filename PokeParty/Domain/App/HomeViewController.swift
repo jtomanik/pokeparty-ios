@@ -12,6 +12,7 @@ let pokemonString = "Pokémon"
 
 protocol HomeViewControllerDelegate: class {
     func homeViewControllerWantsToCreateNewParty(viewController: HomeViewController)
+    func homeViewControllerWantsToShowUserPokemonList(viewController: HomeViewController)
 }
 
 class HomeViewController: UIViewController {
@@ -39,16 +40,16 @@ class HomeViewController: UIViewController {
         return view
     }()
 
-    private let pokemonLabel: UIView = {
-        let label = UILabel()
-        label.layer.cornerRadius = 16.0
-        label.layer.masksToBounds = true
-        label.text = pokemonString
-        label.textColor = UIColor.whiteColor()
-        label.font = UIFont.systemFontOfSize(18.0, weight: UIFontWeightMedium)
-        label.textAlignment = .Center
-        label.backgroundColor = UIColor.appTeamColor()
-        return label
+    private let myPokemonButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 16.0
+        button.layer.masksToBounds = true
+        button.setTitle("My \(pokemonString)", forState: .Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(18.0, weight: UIFontWeightMedium)
+        button.titleLabel?.textAlignment = .Center
+        button.backgroundColor = UIColor.appTeamColor()
+        return button
     }()
 
     private lazy var createNewPartyButton: UIButton = {
@@ -108,15 +109,21 @@ class HomeViewController: UIViewController {
     }
 
     private func setupPokemonLabel() {
-        view.addSubview(pokemonLabel)
-        pokemonLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(myPokemonButton)
+        myPokemonButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activateConstraints([
-            pokemonLabel.heightAnchor.constraintEqualToConstant(32.0),
-            pokemonLabel.widthAnchor.constraintEqualToConstant(110.0),
-            pokemonLabel.centerXAnchor.constraintEqualToAnchor(headerView.centerXAnchor, constant: 15.0),
-            pokemonLabel.topAnchor.constraintEqualToAnchor(headerView.topAnchor, constant: -16.0)
+            myPokemonButton.heightAnchor.constraintEqualToConstant(32.0),
+            myPokemonButton.widthAnchor.constraintEqualToConstant(140.0),
+            myPokemonButton.centerXAnchor.constraintEqualToAnchor(headerView.centerXAnchor, constant: 15.0),
+            myPokemonButton.topAnchor.constraintEqualToAnchor(headerView.topAnchor, constant: -16.0)
         ])
+
+        myPokemonButton.addTarget(self, action: #selector(onMyPokemonButtonTap), forControlEvents: .TouchUpInside)
+    }
+
+    func onMyPokemonButtonTap() {
+        delegate?.homeViewControllerWantsToShowUserPokemonList(self)
     }
 
     private func setupCreateNewPartyButton() {

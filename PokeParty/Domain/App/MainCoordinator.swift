@@ -13,7 +13,7 @@ protocol MainCoordinatorDelegate: class {
 }
 
 
-final class MainCoordinator: Coordinator {
+final class MainCoordinator: NavigationCoordinator {
     
     private(set) var rootViewController: UIViewController
     var childCoordinators: [Coordinator]
@@ -28,9 +28,9 @@ final class MainCoordinator: Coordinator {
         self.accountData = accountData
         self.accountService = AccountService(dataProvider: accountData)
         
-        if false {
+        if accountData.isLoggedIn {
             let homeViewController = HomeViewController()
-            rootViewController = homeViewController
+            rootViewController = NavigationController(rootViewController: homeViewController)
             childCoordinators = []
             homeViewController.delegate = self
         } else {
@@ -57,11 +57,11 @@ final class MainCoordinator: Coordinator {
 
 extension MainCoordinator: OnboardingCoordinatorDelegate {
 
-    func onboardingCoordinatorDidLogin(onboardingCoordinator: OnboardingCoordinator) {
+    func onboardingCoordinatorFinishFlow(onboardingCoordinator: OnboardingCoordinator) {
         removeChildCoordinator(onboardingCoordinator)
         let homeViewController = HomeViewController()
         homeViewController.delegate = self
-        rootViewController = homeViewController
+        rootViewController = NavigationController(rootViewController: homeViewController)
         delegate?.mainCoordinator(self, hasNewRootViewController: rootViewController)
     }
 }
@@ -71,5 +71,10 @@ extension MainCoordinator: HomeViewControllerDelegate {
     func homeViewControllerWantsToCreateNewParty(viewController: HomeViewController) {
         let createNewPartyCoordinator = CreateNewPartyCoordinator()
         presentCoordinator(createNewPartyCoordinator)
+    }
+
+    func homeViewControllerWantsToShowUserPokemonList(viewController: HomeViewController) {
+        let myPokemonViewController = MyPokemonsViewController(pokemons: [], style: .Plain)
+        navigationController.pushViewController(myPokemonViewController, animated: true)
     }
 }

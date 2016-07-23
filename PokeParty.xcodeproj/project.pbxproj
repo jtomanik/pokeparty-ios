@@ -45,6 +45,9 @@
 		8B555FE31D423D6100D3978C /* AccountDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FBD1D423D6100D3978C /* AccountDataProvider.swift */; };
 		8B555FE41D423D6100D3978C /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FBF1D423D6100D3978C /* AccountService.swift */; };
 		8B555FE51D423D6100D3978C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC01D423D6100D3978C /* ImageService.swift */; };
+		8BC30B471D42C9EC00A5443D /* TeamSelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B461D42C9EC00A5443D /* TeamSelectButtonView.swift */; };
+		8BC30B491D42D48200A5443D /* TeamSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B481D42D48200A5443D /* TeamSelectView.swift */; };
+		8BC30B4B1D42D77A00A5443D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4A1D42D77A00A5443D /* SetupProfileViewController.swift */; };
 		8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */; };
 		8BD68C5F1D426B3600C21725 /* CreateNewPartyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C5E1D426B3600C21725 /* CreateNewPartyCoordinator.swift */; };
 		8BD68C611D426C6000C21725 /* CreateNewPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD68C601D426C6000C21725 /* CreateNewPartyViewController.swift */; };
@@ -115,6 +118,9 @@
 		8B555FBD1D423D6100D3978C /* AccountDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataProvider.swift; sourceTree = "<group>"; };
 		8B555FBF1D423D6100D3978C /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		8B555FC01D423D6100D3978C /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		8BC30B461D42C9EC00A5443D /* TeamSelectButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSelectButtonView.swift; sourceTree = "<group>"; };
+		8BC30B481D42D48200A5443D /* TeamSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSelectView.swift; sourceTree = "<group>"; };
+		8BC30B4A1D42D77A00A5443D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignOnViewController.swift; sourceTree = "<group>"; };
 		8BD68C5E1D426B3600C21725 /* CreateNewPartyCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewPartyCoordinator.swift; sourceTree = "<group>"; };
 		8BD68C601D426C6000C21725 /* CreateNewPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewPartyViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +362,9 @@
 			children = (
 				8B555F971D423D6100D3978C /* OnboardingCoordinator.swift */,
 				8BD68C591D42540700C21725 /* GoogleSignOnViewController.swift */,
+				8BC30B461D42C9EC00A5443D /* TeamSelectButtonView.swift */,
+				8BC30B481D42D48200A5443D /* TeamSelectView.swift */,
+				8BC30B4A1D42D77A00A5443D /* SetupProfileViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -544,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE67E8D11D42ABEB002761F0 /* Pokemon.swift in Sources */,
+				8BC30B491D42D48200A5443D /* TeamSelectView.swift in Sources */,
 				8B555FCF1D423D6100D3978C /* NavigationController.swift in Sources */,
 				8B555FCE1D423D6100D3978C /* InNavigationCoordinator.swift in Sources */,
 				8BD68C611D426C6000C21725 /* CreateNewPartyViewController.swift in Sources */,
@@ -567,6 +577,7 @@
 				8BD68C5A1D42540700C21725 /* GoogleSignOnViewController.swift in Sources */,
 				8B555FDC1D423D6100D3978C /* DateFormatter.swift in Sources */,
 				8B555FE21D423D6100D3978C /* UrlType.swift in Sources */,
+				8BC30B4B1D42D77A00A5443D /* SetupProfileViewController.swift in Sources */,
 				8B555FDF1D423D6100D3978C /* Typealiases.swift in Sources */,
 				8B555FE11D423D6100D3978C /* UrlHandler.swift in Sources */,
 				1BB1B1D81D42860900C158AF /* ChoosePokemonsViewController.swift in Sources */,
@@ -581,6 +592,7 @@
 				8B555F801D423D1100D3978C /* AppDelegate.swift in Sources */,
 				8B555FE41D423D6100D3978C /* AccountService.swift in Sources */,
 				8B555FDB1D423D6100D3978C /* Constants.swift in Sources */,
+				8BC30B471D42C9EC00A5443D /* TeamSelectButtonView.swift in Sources */,
 				1BB1B1D01D426C3900C158AF /* PokemonCollectionViewCell.swift in Sources */,
 				8B555FDD1D423D6100D3978C /* TextValidator.swift in Sources */,
 			);

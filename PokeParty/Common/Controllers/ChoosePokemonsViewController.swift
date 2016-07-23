@@ -7,13 +7,17 @@
 //
 
 import UIKit
-import CoreGraphics
 import PokePartyShared
 
 
+protocol ChoosePokemonsViewControllerDelegate: class {
+    func choosePokemonsViewControllerDidTapDoneButton(viewController: ChoosePokemonsViewController)
+}
+
 class ChoosePokemonsViewController: UIViewController {
 
-    
+    weak var delegate: ChoosePokemonsViewControllerDelegate?
+
     private var selectedPokemons = [Pokemon]()
     
     private lazy var titleLabel: UILabel = {
@@ -48,7 +52,7 @@ class ChoosePokemonsViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .Center
-        label.text = "My Pokemons"
+        label.text = "My \(pokemonString)"
         
         self.countBadge.addSubview(self.countBadgeLabel)
         self.countBadgeLabel.topAnchor.constraintEqualToAnchor(self.countBadge.topAnchor).active = true
@@ -76,8 +80,13 @@ class ChoosePokemonsViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("I'm done", forState: .Normal)
         button.backgroundColor = UIColor.darkGrayColor()
+        button.addTarget(self, action: #selector(onDoneButton), forControlEvents: .TouchUpInside)
         return button
     }()
+
+    func onDoneButton() {
+        delegate?.choosePokemonsViewControllerDidTapDoneButton(self)
+    }
     
     var pokemonsController: PokemonsViewController
     
@@ -91,7 +100,7 @@ class ChoosePokemonsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.addSubview(titleLabel)
         view.addSubview(myPokemonsButton)
         view.addSubview(pokemonsController.view)

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PokePartyShared
+
 
 protocol OnboardingCoordinatorDelegate: class {
     func onboardingCoordinatorFinishFlow(onboardingCoordinator: OnboardingCoordinator)
@@ -40,17 +42,24 @@ final class OnboardingCoordinator: NSObject, NavigationCoordinator, GIDSignInDel
         if (error == nil) {
             let userId = user.userID                  // For client-side use only! (haha)
 
+            UserClient.sharedInstance.googleAuth(userId) { user, error in
+                if let _ = error {
+                    let alert = UIAlertController(title: "Error", message: "Login Error, real Error", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK, I guess", style: .Default, handler: nil))
+                    self.rootViewController.presentViewController(alert, animated: true, completion: nil)
+                }
 
-            // TODO: login request to backend
+                guard let _ = user else {
+                    let alert = UIAlertController(title: "Error", message: "Login Error, no User", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK, I guess", style: .Default, handler: nil))
+                    self.rootViewController.presentViewController(alert, animated: true, completion: nil)
+                    return
+                }
 
-
-            let setupProfileViewController = SetupProfileViewController()
-            setupProfileViewController.delegate = self
-            navigationController.pushViewController(setupProfileViewController, animated: true)
-
-
-//            accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
-//            delegate?.onboardingCoordinatorFinishFlow(self)
+                let setupProfileViewController = SetupProfileViewController()
+                setupProfileViewController.delegate = self
+                self.navigationController.pushViewController(setupProfileViewController, animated: true)
+            }
         } else {
             print("\(error.localizedDescription)")
         }
@@ -84,6 +93,7 @@ extension OnboardingCoordinator: ChoosePokemonsViewControllerDelegate {
 
     func choosePokemonsViewControllerDidTapDoneButton(viewController: ChoosePokemonsViewController) {
         // do some stuff, update account etc
+        accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
         delegate?.onboardingCoordinatorFinishFlow(self)
     }
 }

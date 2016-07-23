@@ -57,6 +57,8 @@
 		BE67E8CB1D429AED002761F0 /* PokePartyShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; };
 		BE67E8CC1D429AED002761F0 /* PokePartyShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE67E8D11D42ABEB002761F0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE67E8D01D42ABEB002761F0 /* Pokemon.swift */; };
+		BEC49F4F1D42D396000106E4 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC49F4E1D42D396000106E4 /* ApiClient.swift */; };
+		BEC49F531D42ECD6000106E4 /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC49F521D42ECD6000106E4 /* UserClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,6 +130,8 @@
 		BE631E811D425A7900E7C8AA /* PokeParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeParty-Bridging-Header.h"; sourceTree = "<group>"; };
 		BE67E8CA1D429AED002761F0 /* PokePartyShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokePartyShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE67E8D01D42ABEB002761F0 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		BEC49F4E1D42D396000106E4 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		BEC49F521D42ECD6000106E4 /* UserClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
 		EF327C016239829CDDA61924 /* Pods-PokeParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +249,8 @@
 			children = (
 				8B555F9C1D423D6100D3978C /* AccountDataProviderFactory.swift */,
 				8B555F9D1D423D6100D3978C /* UserDefaultsAccountDataProvider.swift */,
+				BEC49F4E1D42D396000106E4 /* ApiClient.swift */,
+				BEC49F521D42ECD6000106E4 /* UserClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -555,6 +561,7 @@
 				1BB1B1DA1D429BE600C158AF /* MyPokemonsViewController.swift in Sources */,
 				8B555FD01D423D6100D3978C /* NavigationCoordinator.swift in Sources */,
 				8BD68C5F1D426B3600C21725 /* CreateNewPartyCoordinator.swift in Sources */,
+				BEC49F4F1D42D396000106E4 /* ApiClient.swift in Sources */,
 				8B555F821D423D1100D3978C /* ViewController.swift in Sources */,
 				8B555FE31D423D6100D3978C /* AccountDataProvider.swift in Sources */,
 				8B555FCD1D423D6100D3978C /* Coordinator.swift in Sources */,
@@ -580,6 +587,7 @@
 				8B555FD11D423D6100D3978C /* TabBarCoordinator.swift in Sources */,
 				8B555FCC1D423D6100D3978C /* UserDefaultsAccountDataProvider.swift in Sources */,
 				8B555FD71D423D6100D3978C /* UIColor+App.swift in Sources */,
+				BEC49F531D42ECD6000106E4 /* UserClient.swift in Sources */,
 				8B555FD61D423D6100D3978C /* UIApplication+TopViewController.swift in Sources */,
 				8B555F801D423D1100D3978C /* AppDelegate.swift in Sources */,
 				8B555FE41D423D6100D3978C /* AccountService.swift in Sources */,

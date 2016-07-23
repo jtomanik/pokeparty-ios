@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PokePartyShared
+
 
 protocol OnboardingCoordinatorDelegate: class {
     func onboardingCoordinatorDidLogin(onboardingCoordinator: OnboardingCoordinator)
@@ -40,10 +42,24 @@ final class OnboardingCoordinator: NSObject, Coordinator, GIDSignInDelegate {
         if (error == nil) {
             let userId = user.userID                  // For client-side use only! (haha)
 
+            UserClient.sharedInstance.googleAuth(userId) { user, error in
+                if let _ = error {
+                    let alert = UIAlertController(title: "Error", message: "Login Error, real Error", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK, I guess", style: .Default, handler: nil))
+                    self.rootViewController.presentViewController(alert, animated: true, completion: nil)
+                }
 
-            // TODO: login request to backend
-            accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
-            delegate?.onboardingCoordinatorDidLogin(self)
+                guard let _ = user else {
+                    let alert = UIAlertController(title: "Error", message: "Login Error, no User", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK, I guess", style: .Default, handler: nil))
+                    self.rootViewController.presentViewController(alert, animated: true, completion: nil)
+                    return
+                }
+
+                self.accountDataProvider.set(data: [ Constants.Account.isLoggedInKey : true ])
+                self.delegate?.onboardingCoordinatorDidLogin(self)
+            }
+
         } else {
             print("\(error.localizedDescription)")
         }

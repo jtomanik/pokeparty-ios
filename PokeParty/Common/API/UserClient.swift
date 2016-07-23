@@ -23,12 +23,13 @@ class UserClient {
         let action = SignupAction.googleAuth
         let request = apiClient.requestFor(action, queryItems: [NSURLQueryItem(name: "id", value: id)])
 
+        print(request)
         apiClient.send(request) { json, response, error in
             guard let json = json else {
                 completion(nil, error ?? .UnknownError)
                 return assertionFailure("No JSON")
             }
-            let user = UserAdapter.decode(raw: json)
+            let user = UserAdapter.parse(body: PayloadType.json(json)) as User?
             completion(user, nil)
         }
     }
@@ -42,7 +43,7 @@ class UserClient {
                 completion(nil, error ?? .UnknownError)
                 return assertionFailure("No JSON")
             }
-            let user = UserAdapter.decode(raw: json)
+            let user = UserAdapter.parse(body: PayloadType.json(json)) as User?
             completion(user, nil)
         }
     }

@@ -39,7 +39,7 @@ extension AccountDataProvider {
 
     var userTeam: Team? {
         get {
-            if let string = accountData?["com.tooploox.apps.userTeam"] as? String {
+            if let string = accountData?["com.tooploox.apps.userTeam"] as? Int {
                 return Team(rawValue: string)
             } else {
                 return nil

@@ -35,14 +35,14 @@ class TeamSelectButtonView: UIView {
         didSet {
             if let team = team {
                 switch team {
-                    case .Mystic:
+                    case .mystic:
                         teamColorView.backgroundColor = UIColor.appMysticColor()
-                    case .Valor:
+                    case .valor:
                         teamColorView.backgroundColor = UIColor.appValorColor()
-                    case .Instinct:
+                    case .instinct:
                         teamColorView.backgroundColor = UIColor.appInstinctColor()
                 }
-                teamNameLabel.text = team.rawValue
+                teamNameLabel.text = team.description
             }
 
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PokePartyShared
 
 class TeamSelectView: UIView {
 
@@ -31,9 +32,9 @@ class TeamSelectView: UIView {
             stackView.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
         ])
 
-        valorTeamView.team = .Valor
-        mysticTeamView.team = .Mystic
-        instincteamView.team = .Instinct
+        valorTeamView.team = .valor
+        mysticTeamView.team = .mystic
+        instincteamView.team = .instinct
 
         valorTeamView.delegate = self
         mysticTeamView.delegate = self

@@ -17,11 +17,11 @@ extension UIColor {
         }
 
         switch team {
-            case .Instinct:
+            case .instinct:
                 return appInstinctColor()
-            case .Mystic:
+            case .mystic:
                 return appMysticColor()
-            case .Valor:
+            case .valor:
                 return appValorColor()
         }
     }

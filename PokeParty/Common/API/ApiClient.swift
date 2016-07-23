@@ -75,12 +75,13 @@ class ApiClient {
 
     func send(request: NSURLRequest, completion: ApiClientCompletion) -> NSURLSessionDataTask {
         return urlSession.startedTaskWith(request) { data, response, error in
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                guard let data = data else {
+                    return completion (nil, response, error)
+                }
 
-            guard let data = data else {
-                return completion (nil, response, error)
+                completion(JSON(data: data), response, error)
             }
-
-            completion(JSON(data: data), response, error)
         }
     }
 }

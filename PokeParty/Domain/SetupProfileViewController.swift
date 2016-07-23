@@ -21,9 +21,11 @@ final class SetupProfileViewController: UIViewController {
     private let userNameTextField: UITextField = {
         let textfield = UITextField()
         textfield.font = UIFont.boldSystemFontOfSize(17.0)
-        textfield.textColor = UIColor.whiteColor()
-        textfield.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
+        textfield.textColor = UIColor.appButtonBorderYellowColor()
+        textfield.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        textfield.layer.borderColor = UIColor.appTextFieldBorderColor().CGColor
         textfield.layer.borderWidth = 2.0
+        textfield.layer.cornerRadius = 8.0
         textfield.textAlignment = .Center
         return textfield
     }()
@@ -31,8 +33,9 @@ final class SetupProfileViewController: UIViewController {
     private lazy var addPokemonButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add \(pokemonString)", forState: .Normal)
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.layer.cornerRadius = 3.0
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
         button.layer.borderWidth = 3.0
         button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
         button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
@@ -48,14 +51,48 @@ final class SetupProfileViewController: UIViewController {
         view.addSubview(teamSelectView)
         view.addSubview(userNameTextField)
         view.addSubview(addPokemonButton)
+
+        let label = UILabel()
+        label.text = "Create Profile"
+        label.font = UIFont.systemFontOfSize(30.0, weight: UIFontWeightLight)
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = .Center
+
+        view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activateConstraints([
+            label.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 40.0),
+            label.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+            label.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
+        ])
+
+        let usernameLabel = UILabel()
+        view.addSubview(usernameLabel)
+
+        usernameLabel.text = "\(pokemonString) Go username"
+        usernameLabel.font = UIFont.systemFontOfSize(18.0)
+        usernameLabel.textColor = UIColor.whiteColor()
+        usernameLabel.textAlignment = .Left
+
+
+        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activateConstraints([
+            usernameLabel.topAnchor.constraintEqualToAnchor(label.bottomAnchor, constant: 35.0),
+            usernameLabel.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 20.0),
+            usernameLabel.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
+        ])
+
         addPokemonButton.translatesAutoresizingMaskIntoConstraints = false
         teamSelectView.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activateConstraints([
-            userNameTextField.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 20.0),
-            userNameTextField.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -50.0),
-            userNameTextField.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 50.0),
+            userNameTextField.topAnchor.constraintEqualToAnchor(usernameLabel.bottomAnchor, constant: 16.0),
+            userNameTextField.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -20.0),
+            userNameTextField.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 20.0),
             userNameTextField.heightAnchor.constraintEqualToConstant(50.0)
         ])
 
@@ -66,10 +103,10 @@ final class SetupProfileViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activateConstraints([
-            addPokemonButton.topAnchor.constraintEqualToAnchor(teamSelectView.bottomAnchor, constant: 30.0),
-            addPokemonButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -50.0),
-            addPokemonButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 50.0),
-            addPokemonButton.heightAnchor.constraintEqualToConstant(50.0)
+            addPokemonButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -30.0),
+            addPokemonButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -30.0),
+            addPokemonButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 30.0),
+            addPokemonButton.heightAnchor.constraintEqualToConstant(60.0)
         ])
     }
 

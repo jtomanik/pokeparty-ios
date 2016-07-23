@@ -46,6 +46,7 @@
 		8B555FE41D423D6100D3978C /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FBF1D423D6100D3978C /* AccountService.swift */; };
 		8B555FE51D423D6100D3978C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555FC01D423D6100D3978C /* ImageService.swift */; };
 		8BB96C991D43610300EB90AD /* PartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB96C981D43610300EB90AD /* PartyViewController.swift */; };
+		8BB96C9B1D4373DC00EB90AD /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB96C9A1D4373DC00EB90AD /* EventsViewController.swift */; };
 		8BC30B471D42C9EC00A5443D /* TeamSelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B461D42C9EC00A5443D /* TeamSelectButtonView.swift */; };
 		8BC30B491D42D48200A5443D /* TeamSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B481D42D48200A5443D /* TeamSelectView.swift */; };
 		8BC30B4B1D42D77A00A5443D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4A1D42D77A00A5443D /* SetupProfileViewController.swift */; };
@@ -120,6 +121,7 @@
 		8B555FBF1D423D6100D3978C /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		8B555FC01D423D6100D3978C /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		8BB96C981D43610300EB90AD /* PartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyViewController.swift; sourceTree = "<group>"; };
+		8BB96C9A1D4373DC00EB90AD /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		8BC30B461D42C9EC00A5443D /* TeamSelectButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSelectButtonView.swift; sourceTree = "<group>"; };
 		8BC30B481D42D48200A5443D /* TeamSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSelectView.swift; sourceTree = "<group>"; };
 		8BC30B4A1D42D77A00A5443D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				8B555F941D423D6100D3978C /* MainCoordinator.swift */,
 				8BD68C641D429A3300C21725 /* HomeViewController.swift */,
 				8BB96C981D43610300EB90AD /* PartyViewController.swift */,
+				8BB96C9A1D4373DC00EB90AD /* EventsViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -262,8 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				1BB1B1D51D427E8200C158AF /* PokemonsViewController.swift */,
-				1BB1B1D71D42860900C158AF /* ChoosePokemonsViewController.swift */,
 				1BB1B1D91D429BE600C158AF /* MyPokemonsViewController.swift */,
+				1BB1B1D71D42860900C158AF /* ChoosePokemonsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				8BC30B471D42C9EC00A5443D /* TeamSelectButtonView.swift in Sources */,
 				1BB1B1D01D426C3900C158AF /* PokemonCollectionViewCell.swift in Sources */,
 				8B555FDD1D423D6100D3978C /* TextValidator.swift in Sources */,
+				8BB96C9B1D4373DC00EB90AD /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

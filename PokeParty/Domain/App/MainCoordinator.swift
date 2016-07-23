@@ -28,7 +28,7 @@ final class MainCoordinator: NavigationCoordinator {
         self.accountData = accountData
         self.accountService = AccountService(dataProvider: accountData)
         
-        if accountData.isLoggedIn {
+        if true {
             let homeViewController = HomeViewController()
             rootViewController = NavigationController(rootViewController: homeViewController)
             childCoordinators = []
@@ -88,7 +88,8 @@ extension MainCoordinator: HomeViewControllerDelegate {
 extension MainCoordinator: PartyViewControllerDelegate {
 
     func partyViewControllerWantsToShowEvents(viewController: PartyViewController) {
-        //
+        let eventsViewController = EventsViewController(events: [], style: .Plain)
+        navigationController.pushViewController(eventsViewController, animated: true)
     }
 
     func partyViewControllerWantsToAddTrainers(viewController: PartyViewController) {

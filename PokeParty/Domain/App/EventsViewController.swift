@@ -61,7 +61,11 @@ class EventsViewController: UITableViewController {
     }
 
     func onAddEvent() {
-
+        let addEventViewController = CreateEventViewController()
+        addEventViewController.onCreateEvent = { name, description in
+            
+        }
+        navigationController?.pushViewController(addEventViewController, animated: true)
     }
     
 }

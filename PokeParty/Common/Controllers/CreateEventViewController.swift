@@ -18,6 +18,8 @@ class CreateEventViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Create event for party"
         label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(18.0)
+        label.textColor = .whiteColor()
         return label
     }()
 
@@ -26,22 +28,37 @@ class CreateEventViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Event name"
         textField.heightAnchor.constraintEqualToConstant(44.0).active = true
-        textField.layer.borderColor = UIColor.grayColor().CGColor
+        
+        textField.font = UIFont.boldSystemFontOfSize(17.0)
+        textField.textColor = UIColor.appButtonBorderYellowColor()
+        textField.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        textField.layer.borderColor = UIColor.appTextFieldBorderColor().CGColor
         textField.layer.borderWidth = 2.0
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        textField.leftViewMode = .Always
+        textField.layer.cornerRadius = 8.0
+        textField.textAlignment = .Center
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Event name...",
+            attributes: [NSForegroundColorAttributeName : UIColor(white: 1.0, alpha: 0.5)]
+        )
         return textField
     }()
     
     lazy var eventDescriptionTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Event description"
         textField.heightAnchor.constraintEqualToConstant(44.0).active = true
-        textField.layer.borderColor = UIColor.grayColor().CGColor
+        
+        textField.font = UIFont.boldSystemFontOfSize(17.0)
+        textField.textColor = UIColor.appButtonBorderYellowColor()
+        textField.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        textField.layer.borderColor = UIColor.appTextFieldBorderColor().CGColor
         textField.layer.borderWidth = 2.0
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        textField.leftViewMode = .Always
+        textField.layer.cornerRadius = 8.0
+        textField.textAlignment = .Center
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Event description...",
+            attributes: [NSForegroundColorAttributeName : UIColor(white: 1.0, alpha: 0.5)]
+        )
         return textField
     }()
     
@@ -49,9 +66,14 @@ class CreateEventViewController: UIViewController {
         let button = UIButton(type: .System)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add location", forState: .Normal)
-        button.tintColor = .grayColor()
-        button.layer.borderColor = UIColor.grayColor().CGColor
-        button.layer.borderWidth = 2.0
+        
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
+
         button.heightAnchor.constraintEqualToConstant(44.0).active = true
         return button
     }()
@@ -61,8 +83,16 @@ class CreateEventViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Go!", forState: .Normal)
         button.heightAnchor.constraintEqualToConstant(44.0).active = true
-        button.backgroundColor = UIColor.grayColor()
-        button.tintColor = .whiteColor()
+        
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
+        
+//        button.backgroundColor = UIColor.grayColor()
+//        button.tintColor = .whiteColor()
         button.addTarget(self, action: #selector(goButtonPressed), forControlEvents: .TouchUpInside)
         return button
     }()
@@ -89,6 +119,7 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
         view.addSubview(scrollView)
         
         scrollView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor).active = true
@@ -103,7 +134,7 @@ class CreateEventViewController: UIViewController {
     }
     
     @objc private func goButtonPressed() {
-        guard let name = eventNameTextField.text, description = eventDescriptionTextField.text else {
+        guard let name = eventNameTextField.text, description = eventDescriptionTextField.text where name != "" && description != "" else {
             return
         }
         onCreateEvent?(name: name, description: description)

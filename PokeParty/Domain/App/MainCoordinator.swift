@@ -79,6 +79,19 @@ extension MainCoordinator: HomeViewControllerDelegate {
     }
 
     func homeViewControllerWantsToShowUsersParty(viewController: HomeViewController) {
+        let partyViewController = PartyViewController()
+        partyViewController.delegate = self
+        navigationController.pushViewController(partyViewController, animated: true)
+    }
+}
+
+extension MainCoordinator: PartyViewControllerDelegate {
+
+    func partyViewControllerWantsToShowEvents(viewController: PartyViewController) {
+        //
+    }
+
+    func partyViewControllerWantsToAddTrainers(viewController: PartyViewController) {
         //
     }
 }

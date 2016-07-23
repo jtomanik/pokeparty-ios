@@ -21,6 +21,8 @@ final class MainCoordinator: NavigationCoordinator {
 
     private let accountData: AccountDataProvider
     private let accountService: AccountService
+
+    var homeViewController: HomeViewController!
     
     // MARK: - Init
     
@@ -28,8 +30,8 @@ final class MainCoordinator: NavigationCoordinator {
         self.accountData = accountData
         self.accountService = AccountService(dataProvider: accountData)
         
-        if true {
-            let homeViewController = HomeViewController()
+        if accountData.isLoggedIn {
+            homeViewController = HomeViewController()
             rootViewController = NavigationController(rootViewController: homeViewController)
             childCoordinators = []
             homeViewController.delegate = self
@@ -59,7 +61,7 @@ extension MainCoordinator: OnboardingCoordinatorDelegate {
 
     func onboardingCoordinatorFinishFlow(onboardingCoordinator: OnboardingCoordinator) {
         removeChildCoordinator(onboardingCoordinator)
-        let homeViewController = HomeViewController()
+        homeViewController = HomeViewController()
         homeViewController.delegate = self
         rootViewController = NavigationController(rootViewController: homeViewController)
         delegate?.mainCoordinator(self, hasNewRootViewController: rootViewController)
@@ -71,6 +73,13 @@ extension MainCoordinator: HomeViewControllerDelegate {
     func homeViewControllerWantsToCreateNewParty(viewController: HomeViewController) {
         let createNewPartyCoordinator = CreateNewPartyCoordinator()
         presentCoordinator(createNewPartyCoordinator)
+        createNewPartyCoordinator.onClose = {
+            self.dismissCoordinator(createNewPartyCoordinator)
+        }
+
+        createNewPartyCoordinator.onCreate = { name in
+            self.homeViewController.setupMyPartyButton()
+        }
     }
 
     func homeViewControllerWantsToShowUserPokemonList(viewController: HomeViewController) {
@@ -93,6 +102,6 @@ extension MainCoordinator: PartyViewControllerDelegate {
     }
 
     func partyViewControllerWantsToAddTrainers(viewController: PartyViewController) {
-        //
+        //a
     }
 }

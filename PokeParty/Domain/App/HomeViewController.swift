@@ -26,30 +26,32 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
         return view
     }()
+    
 
     private let avatarOuterCircleView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.appLightBackgorundColor()
         view.layer.cornerRadius = 45.0
+        view.layer.borderWidth = 3.0
+        view.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         return view
     }()
 
-    private let avatarInnerCircleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.whiteColor()
+    private let avatarInnerCircleImageView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "pokemon_25"))
         view.layer.cornerRadius = 40.0
         return view
     }()
 
     private let myPokemonButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 16.0
-        button.layer.masksToBounds = true
-        button.setTitle("My \(pokemonString)", forState: .Normal)
+        button.setTitle("My \(pokemonString) (N/D) >", forState: .Normal)
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(18.0, weight: UIFontWeightMedium)
-        button.titleLabel?.textAlignment = .Center
-        button.backgroundColor = UIColor.appTeamColor()
+        button.titleLabel?.font = UIFont.systemFontOfSize(17.0)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         return button
     }()
 
@@ -67,25 +69,65 @@ class HomeViewController: UIViewController {
     private lazy var createNewPartyButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create a new party", forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightSemibold)
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.backgroundColor = UIColor.appTeamColor()
-        button.layer.cornerRadius = 3.0
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         button.addTarget(self, action: #selector(onCreateNewParty), forControlEvents: .TouchUpInside)
         return button
+    }()
+    
+    private lazy var noPartyPlaceholderLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "It's dangerous to go alone! Why don't you create a party?"
+        label.numberOfLines = 0
+        label.textAlignment = .Center
+        label.textColor = UIColor.lightGrayColor()
+        return label
+    }()
+    
+    private lazy var helloLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Hello, Trainer!"
+        label.textColor = UIColor.lightGrayColor()
+        label.font = UIFont.systemFontOfSize(20.0)
+        return label
     }()
 
     override func loadView() {
         view = UIView()
-        view.backgroundColor = UIColor.appLightBackgorundColor()
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
         setupHeaderView()
         setupCircles()
-        setupPokemonLabel()
+        setupMyPokemonButton()
         setupCreateNewPartyButton()
-        setupMyPartyButton()
-
+//        setupMyPartyButton()
+        setupNoPartyPlaceholderLabel()
+        setupHelloLabel()
+        
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    }
+    
+    private func setupHelloLabel() {
+        headerView.addSubview(helloLabel)
+        NSLayoutConstraint.activateConstraints([
+            helloLabel.leadingAnchor.constraintEqualToAnchor(avatarOuterCircleView.trailingAnchor, constant: 8.0),
+            helloLabel.bottomAnchor.constraintEqualToAnchor(myPokemonButton.topAnchor, constant: -12.0)
+        ])
+    }
+    
+    private func setupNoPartyPlaceholderLabel() {
+        view.addSubview(noPartyPlaceholderLabel)
+        NSLayoutConstraint.activateConstraints([
+            noPartyPlaceholderLabel.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
+            noPartyPlaceholderLabel.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0),
+            noPartyPlaceholderLabel.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0),
+        ])
     }
 
     private func setupHeaderView() {
@@ -100,11 +142,11 @@ class HomeViewController: UIViewController {
     }
 
     private func setupCircles() {
-        avatarOuterCircleView.addSubview(avatarInnerCircleView)
+        avatarOuterCircleView.addSubview(avatarInnerCircleImageView)
         view.addSubview(avatarOuterCircleView)
 
         avatarOuterCircleView.translatesAutoresizingMaskIntoConstraints = false
-        avatarInnerCircleView.translatesAutoresizingMaskIntoConstraints = false
+        avatarInnerCircleImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activateConstraints([
             avatarOuterCircleView.leadingAnchor.constraintEqualToAnchor(headerView.leadingAnchor, constant: 20.0),
@@ -114,22 +156,22 @@ class HomeViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activateConstraints([
-            avatarInnerCircleView.centerXAnchor.constraintEqualToAnchor(avatarOuterCircleView.centerXAnchor),
-            avatarInnerCircleView.centerYAnchor.constraintEqualToAnchor(avatarOuterCircleView.centerYAnchor),
-            avatarInnerCircleView.heightAnchor.constraintEqualToConstant(80.0),
-            avatarInnerCircleView.widthAnchor.constraintEqualToConstant(80.0)
+            avatarInnerCircleImageView.centerXAnchor.constraintEqualToAnchor(avatarOuterCircleView.centerXAnchor),
+            avatarInnerCircleImageView.centerYAnchor.constraintEqualToAnchor(avatarOuterCircleView.centerYAnchor),
+            avatarInnerCircleImageView.heightAnchor.constraintEqualToConstant(80.0),
+            avatarInnerCircleImageView.widthAnchor.constraintEqualToConstant(80.0)
         ])
     }
 
-    private func setupPokemonLabel() {
+    private func setupMyPokemonButton() {
         view.addSubview(myPokemonButton)
         myPokemonButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activateConstraints([
             myPokemonButton.heightAnchor.constraintEqualToConstant(32.0),
-            myPokemonButton.widthAnchor.constraintEqualToConstant(140.0),
-            myPokemonButton.centerXAnchor.constraintEqualToAnchor(headerView.centerXAnchor, constant: 15.0),
-            myPokemonButton.topAnchor.constraintEqualToAnchor(headerView.topAnchor, constant: -16.0)
+            myPokemonButton.widthAnchor.constraintEqualToAnchor(headerView.widthAnchor, multiplier: 0.7),
+            myPokemonButton.centerXAnchor.constraintEqualToAnchor(headerView.centerXAnchor),
+            myPokemonButton.topAnchor.constraintEqualToAnchor(headerView.bottomAnchor, constant: -16.0)
         ])
 
         myPokemonButton.addTarget(self, action: #selector(onMyPokemonButtonTap), forControlEvents: .TouchUpInside)
@@ -156,9 +198,9 @@ class HomeViewController: UIViewController {
         createNewPartyButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activateConstraints([
-            createNewPartyButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 50.0),
-            createNewPartyButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -50.0),
-            createNewPartyButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -70.0),
+            createNewPartyButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0),
+            createNewPartyButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0),
+            createNewPartyButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -20.0),
             createNewPartyButton.heightAnchor.constraintEqualToConstant(60.0)
         ])
     }

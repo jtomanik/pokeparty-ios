@@ -40,6 +40,13 @@ class EventsViewController: UITableViewController {
             UINib(nibName: "PokemonTableViewCell", bundle: nil),
             forCellReuseIdentifier: "pokemonCell"
         )
+
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
+        title = "Events for party"
+        tableView.separatorColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.15)
+        tableView.separatorInset = UIEdgeInsetsZero
+
+        dateFormatter.dateFormat = "dd.MM.yyyy"
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,13 +58,15 @@ class EventsViewController: UITableViewController {
         let event = events[indexPath.row]
         cell.pokemonImage.image = UIImage()
         cell.pokemonNameLabel.text = event.name
+
         cell.pokemonCombatPowerLabel.text = dateFormatter.stringFromDate(NSDate())
+        cell.setupLayout()
 
         return cell
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 64.0
+        return 80.0
     }
 
     func onAddEvent() {

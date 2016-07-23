@@ -23,20 +23,23 @@ class ChoosePokemonsViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Select your pokemons"
+        label.text = "Choose your \(pokemonString)"
+        label.font = UIFont.systemFontOfSize(18.0)
+        label.textColor = UIColor.whiteColor()
         return label
     }()
     
     private lazy var countBadge: UIView = {
         let countBadge = UIView()
         countBadge.translatesAutoresizingMaskIntoConstraints = false
-        countBadge.backgroundColor = UIColor.redColor()
+        countBadge.backgroundColor = UIColor.appValorColor()
         return countBadge
     }()
     
     private lazy var countBadgeLabel: UILabel = {
         let countBadgeLabel = UILabel()
         countBadgeLabel.text = "0"
+        countBadgeLabel.font = UIFont.boldSystemFontOfSize(12.0)
         countBadgeLabel.translatesAutoresizingMaskIntoConstraints = false
         countBadgeLabel.textColor = UIColor.whiteColor()
         countBadgeLabel.textAlignment = .Center
@@ -46,12 +49,15 @@ class ChoosePokemonsViewController: UIViewController {
     private lazy var myPokemonsButton: UIControl = {
         let button = UIControl()
         button.layer.borderColor = UIColor.lightGrayColor().CGColor
-        button.layer.borderWidth = 1.0
+        button.layer.borderWidth = 3.0
+        button.layer.cornerRadius = 8.0
         button.translatesAutoresizingMaskIntoConstraints = false
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(18.0, weight: UIFontWeightMedium)
+        label.textColor = UIColor.whiteColor()
         label.text = "My \(pokemonString)"
         
         self.countBadge.addSubview(self.countBadgeLabel)
@@ -65,7 +71,7 @@ class ChoosePokemonsViewController: UIViewController {
         label.centerYAnchor.constraintEqualToAnchor(button.centerYAnchor).active = true
         
         button.addSubview(self.countBadge)
-        self.countBadge.trailingAnchor.constraintEqualToAnchor(button.trailingAnchor, constant: -8.0).active = true
+        self.countBadge.leadingAnchor.constraintEqualToAnchor(label.trailingAnchor, constant: 8.0).active = true
         self.countBadge.centerYAnchor.constraintEqualToAnchor(button.centerYAnchor).active = true
         self.countBadge.widthAnchor.constraintEqualToConstant(30.0).active = true
         self.countBadge.heightAnchor.constraintEqualToConstant(30.0).active = true
@@ -76,10 +82,15 @@ class ChoosePokemonsViewController: UIViewController {
     
     private lazy var doneButton: UIButton = {
         let button = UIButton(type: .System)
-        button.tintColor = UIColor.whiteColor()
+
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("I'm done", forState: .Normal)
-        button.backgroundColor = UIColor.darkGrayColor()
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         button.addTarget(self, action: #selector(onDoneButton), forControlEvents: .TouchUpInside)
         return button
     }()
@@ -110,28 +121,30 @@ class ChoosePokemonsViewController: UIViewController {
         titleLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
         
         myPokemonsButton.topAnchor.constraintEqualToAnchor(titleLabel.bottomAnchor, constant: 20.0).active = true
-        myPokemonsButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
-        myPokemonsButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0).active = true
-        myPokemonsButton.heightAnchor.constraintEqualToConstant(44.0).active = true
+        myPokemonsButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 30.0).active = true
+        myPokemonsButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -30.0).active = true
+        myPokemonsButton.heightAnchor.constraintEqualToConstant(60.0).active = true
         
         pokemonsController.view.translatesAutoresizingMaskIntoConstraints = false
         addChildViewController(pokemonsController)
         pokemonsController.didMoveToParentViewController(self)
-        pokemonsController.view.topAnchor.constraintEqualToAnchor(myPokemonsButton.bottomAnchor, constant: 12.0).active = true
-        pokemonsController.view.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
-        pokemonsController.view.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0).active = true
-        
-        doneButton.topAnchor.constraintEqualToAnchor(pokemonsController.view.bottomAnchor, constant: 12.0).active = true
-        doneButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 12.0).active = true
-        doneButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -12.0).active = true
-        doneButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -12.0).active = true
-        doneButton.heightAnchor.constraintEqualToConstant(44.0).active = true
+        pokemonsController.view.topAnchor.constraintEqualToAnchor(myPokemonsButton.bottomAnchor, constant: 10.0).active = true
+        pokemonsController.view.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 16.0).active = true
+        pokemonsController.view.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -16.0).active = true
+
+        doneButton.topAnchor.constraintEqualToAnchor(pokemonsController.view.bottomAnchor, constant: 10.0).active = true
+        doneButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 30.0).active = true
+        doneButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -30.0).active = true
+        doneButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -30.0).active = true
+        doneButton.heightAnchor.constraintEqualToConstant(60.0).active = true
         
         myPokemonsButton.addTarget(self, action: #selector(onMyPokemonsSelected), forControlEvents: .TouchUpInside)
         
         pokemonsController.onPokemonSelected = { [unowned self] pokemon in
             self.showInsertCPAlert(pokemon)
         }
+
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
     }
     
     private func showInsertCPAlert(pokemon: Pokemon) {

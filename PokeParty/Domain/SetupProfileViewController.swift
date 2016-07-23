@@ -98,8 +98,8 @@ final class SetupProfileViewController: UIViewController {
 
         NSLayoutConstraint.activateConstraints([
             teamSelectView.topAnchor.constraintEqualToAnchor(userNameTextField.bottomAnchor, constant: 40.0),
-            teamSelectView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-            teamSelectView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
+            teamSelectView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 20.0),
+            teamSelectView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -20.0)
         ])
 
         NSLayoutConstraint.activateConstraints([

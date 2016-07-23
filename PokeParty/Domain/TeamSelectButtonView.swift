@@ -24,9 +24,11 @@ class TeamSelectButtonView: UIView {
         set {
             button.selected = newValue
             if selected {
-                backgroundColor = UIColor.appButtonBorderYellowColor().colorWithAlphaComponent(0.2)
+                layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
+                layer.borderWidth = 3.0
             } else {
-                backgroundColor = nil
+                layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
+                layer.borderWidth = 0.0
             }
         }
     }
@@ -93,7 +95,7 @@ class TeamSelectButtonView: UIView {
         ])
 
         NSLayoutConstraint.activateConstraints([
-            teamColorView.topAnchor.constraintEqualToAnchor(topAnchor, constant: 10.0),
+            teamColorView.topAnchor.constraintEqualToAnchor(topAnchor, constant: 20.0),
             teamColorView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
             teamColorView.heightAnchor.constraintEqualToConstant(50.0),
             teamColorView.widthAnchor.constraintEqualToConstant(50.0)
@@ -102,7 +104,7 @@ class TeamSelectButtonView: UIView {
         NSLayoutConstraint.activateConstraints([
             teamNameLabel.topAnchor.constraintEqualToAnchor(teamColorView.bottomAnchor, constant: 15.0),
             teamNameLabel.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
-            teamNameLabel.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+            teamNameLabel.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -10.0)
         ])
     }
     

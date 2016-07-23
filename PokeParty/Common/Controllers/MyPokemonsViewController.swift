@@ -29,6 +29,11 @@ class MyPokemonsViewController: UITableViewController {
             UINib(nibName: "PokemonTableViewCell", bundle: nil),
             forCellReuseIdentifier: "pokemonCell"
         )
+
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
+        title = pokemonString
+        tableView.separatorColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.15)
+        tableView.separatorInset = UIEdgeInsetsZero
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,16 +41,17 @@ class MyPokemonsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("pokemonCell") as! PokemonTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("pokemonCell", forIndexPath: indexPath) as! PokemonTableViewCell
         let pokemon = pokemons[indexPath.row]
         cell.pokemonImage.image = pokemon.image
         cell.pokemonNameLabel.text = pokemon.name
         cell.pokemonCombatPowerLabel.text = "\(pokemon.combatPower)"
+        cell.setupLayout()
         return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 64.0
+        return 80.0
     }
 
 }

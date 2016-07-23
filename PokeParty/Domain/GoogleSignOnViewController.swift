@@ -23,7 +23,8 @@ class GoogleSignOnViewController: UIViewController, GIDSignInUIDelegate {
         button.layer.borderWidth = 3.0
         button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
         button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
-        button.addTarget(self, action: #selector(onGoogleSignOn), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(onGoogleSignOn), forControlEvents
+            : .TouchUpInside)
         return button
     }()
 
@@ -69,7 +70,7 @@ class GoogleSignOnViewController: UIViewController, GIDSignInUIDelegate {
         NSLayoutConstraint.activateConstraints([
             googleSignOnButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 30.0),
             googleSignOnButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -30.0),
-            googleSignOnButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -50.0),
+            googleSignOnButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -30.0),
             googleSignOnButton.heightAnchor.constraintEqualToConstant(60.0),
         ])
     }

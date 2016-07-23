@@ -53,5 +53,8 @@ extension UIColor {
     class func appSplashScreenBackgroundColor() -> UIColor {
         return UIColor(red: 29.0 / 255.0, green: 44.0 / 255.0, blue: 94.0 / 255.0, alpha: 1.0)
     }
+    class func appTextFieldBorderColor() -> UIColor {
+        return UIColor(red: 44.0 / 255.0, green: 88.0 / 255.0, blue: 150.0 / 255.0, alpha: 1.0)
+    }
 
 }

@@ -15,6 +15,8 @@
 		1BB1B1DA1D429BE600C158AF /* MyPokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1B1D91D429BE600C158AF /* MyPokemonsViewController.swift */; };
 		1BB1B1DD1D429CC200C158AF /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1B1DB1D429CC200C158AF /* PokemonTableViewCell.swift */; };
 		1BB1B1DE1D429CC200C158AF /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB1B1DC1D429CC200C158AF /* PokemonTableViewCell.xib */; };
+		1BC156751D43776200724BAD /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC156741D43776200724BAD /* CreateEventViewController.swift */; };
+		1BC156771D4385F700724BAD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC156761D4385F700724BAD /* MapViewController.swift */; };
 		4AA4391EC4DD1F6A1624F8CF /* Pods_PokeParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FC1537C1A863C2A7D279A6 /* Pods_PokeParty.framework */; };
 		8B555F801D423D1100D3978C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F7F1D423D1100D3978C /* AppDelegate.swift */; };
 		8B555F821D423D1100D3978C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B555F811D423D1100D3978C /* ViewController.swift */; };
@@ -86,6 +88,8 @@
 		1BB1B1D91D429BE600C158AF /* MyPokemonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPokemonsViewController.swift; sourceTree = "<group>"; };
 		1BB1B1DB1D429CC200C158AF /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
 		1BB1B1DC1D429CC200C158AF /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
+		1BC156741D43776200724BAD /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		1BC156761D4385F700724BAD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		57CE084EBEF115992676E7C8 /* Pods-PokeParty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeParty.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokeParty/Pods-PokeParty.release.xcconfig"; sourceTree = "<group>"; };
 		88FC1537C1A863C2A7D279A6 /* Pods_PokeParty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeParty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B555F7C1D423D1100D3978C /* PokeParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +268,8 @@
 				1BB1B1D51D427E8200C158AF /* PokemonsViewController.swift */,
 				1BB1B1D71D42860900C158AF /* ChoosePokemonsViewController.swift */,
 				1BB1B1D91D429BE600C158AF /* MyPokemonsViewController.swift */,
+				1BC156741D43776200724BAD /* CreateEventViewController.swift */,
+				1BC156761D4385F700724BAD /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				1BB1B1DA1D429BE600C158AF /* MyPokemonsViewController.swift in Sources */,
 				8B555FD01D423D6100D3978C /* NavigationCoordinator.swift in Sources */,
 				8BD68C5F1D426B3600C21725 /* CreateNewPartyCoordinator.swift in Sources */,
+				1BC156771D4385F700724BAD /* MapViewController.swift in Sources */,
 				BEC49F4F1D42D396000106E4 /* ApiClient.swift in Sources */,
 				8B555F821D423D1100D3978C /* ViewController.swift in Sources */,
 				8BB96C991D43610300EB90AD /* PartyViewController.swift in Sources */,
@@ -572,6 +579,7 @@
 				1BB1B1DD1D429CC200C158AF /* PokemonTableViewCell.swift in Sources */,
 				8B555FD91D423D6100D3978C /* UIImageView+SetImageWithURL.swift in Sources */,
 				1BB1B1D61D427E8200C158AF /* PokemonsViewController.swift in Sources */,
+				1BC156751D43776200724BAD /* CreateEventViewController.swift in Sources */,
 				8B555FD81D423D6100D3978C /* UIImage+WithColors.swift in Sources */,
 				8B555FCB1D423D6100D3978C /* AccountDataProviderFactory.swift in Sources */,
 				8B555FD51D423D6100D3978C /* NSDate+Helpers.swift in Sources */,

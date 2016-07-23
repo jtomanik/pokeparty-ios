@@ -84,4 +84,47 @@ class ApiClient {
             }
         }
     }
+
+    func requestFor(action: Action, queryItems: [NSURLQueryItem]? = nil, payload: NSData? = nil) -> NSMutableURLRequest {
+        let url = NSURL(string: action.absoluteString)!
+        var request = NSMutableURLRequest(URL: url)
+
+        switch action.method {
+        case .get:
+            guard let queryItems = queryItems else {
+                assertionFailure("GET has to have Query Items (at least an empty array)")
+                return request
+            }
+            request.HTTPMethod = "GET"
+
+            let urlComponents = NSURLComponents(string: action.absoluteString)
+            urlComponents?.queryItems = queryItems
+            let url = urlComponents!.URL!
+
+            request = NSMutableURLRequest(URL: url)
+        case .post:
+            guard let payload = payload else {
+                assertionFailure("POST has to have Body")
+                return request
+            }
+
+            if let queryItems = queryItems {
+                let urlComponents = NSURLComponents(string: action.absoluteString)
+                urlComponents?.queryItems = queryItems
+                let url = urlComponents!.URL!
+
+                request = NSMutableURLRequest(URL: url)
+            }
+
+            request.HTTPMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+
+            request.HTTPBody = payload
+        default:
+            assertionFailure("Unsupported Action Method")
+        }
+        
+        return request
+    }
 }

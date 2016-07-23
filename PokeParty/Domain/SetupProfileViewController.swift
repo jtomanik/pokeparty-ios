@@ -12,13 +12,13 @@ protocol SetupProfileViewControllerDelegate: class {
     func setupProfileViewControllerWantsToAddPokemon(viewController: SetupProfileViewController)
 }
 
-final class SetupProfileViewController: UIViewController {
+final class SetupProfileViewController: UIViewController, UITextFieldDelegate {
 
     let teamSelectView = TeamSelectView()
 
     weak var delegate: SetupProfileViewControllerDelegate?
 
-    private let userNameTextField: UITextField = {
+    private lazy var userNameTextField: UITextField = {
         let textfield = UITextField()
         textfield.font = UIFont.boldSystemFontOfSize(17.0)
         textfield.textColor = UIColor.appButtonBorderYellowColor()
@@ -27,6 +27,7 @@ final class SetupProfileViewController: UIViewController {
         textfield.layer.borderWidth = 2.0
         textfield.layer.cornerRadius = 8.0
         textfield.textAlignment = .Center
+        textfield.delegate = self
         return textfield
     }()
 
@@ -112,5 +113,10 @@ final class SetupProfileViewController: UIViewController {
 
     func onAddPokemon() {
         delegate?.setupProfileViewControllerWantsToAddPokemon(self)
+    }
+
+    @objc func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

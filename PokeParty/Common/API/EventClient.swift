@@ -21,12 +21,14 @@ class EventClient {
     let apiClient = ApiClient.sharedInstance
     let accountData = AccountDataProviderFactory.userDefaultsAccountDataProvider()
 
-    func create(name: String, description: String, completion: EventClientCompletion) {
+    func create(name: String, description: String? = nil, latitude: Double, longitude: Double, completion: EventClientCompletion) {
         let request = apiClient.requestFor(
             EventAction.create,
             queryItems: [
                 NSURLQueryItem(name: "name", value: name),
                 NSURLQueryItem(name: "description", value: description),
+                NSURLQueryItem(name: "latitude", value: "\(51.108056)"),
+                NSURLQueryItem(name: "longitude", value: "\(17.020278)"),
                 NSURLQueryItem(name: "owner", value: accountData.userId)
             ]
         )

@@ -29,9 +29,9 @@ class EventsViewController: UITableViewController {
         super.viewDidLoad()
 
         events = [
-            Event(name: "event", ownerId: "asd"),
-            Event(name: "event1", ownerId: "asd"),
-            Event(name: "event2", ownerId: "asd")
+            Event(name: "event", description: "Event description", latitude: 0, longitude: 0, ownerId: "asd"),
+            Event(name: "event1", description: "Event description", latitude: 0, longitude: 0, ownerId: "asd"),
+            Event(name: "event2", description: "Event description", latitude: 0, longitude: 0, ownerId: "asd")
         ]
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(onAddEvent))

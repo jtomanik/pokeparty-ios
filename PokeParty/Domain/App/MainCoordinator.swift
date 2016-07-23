@@ -77,4 +77,8 @@ extension MainCoordinator: HomeViewControllerDelegate {
         let myPokemonViewController = MyPokemonsViewController(pokemons: [], style: .Plain)
         navigationController.pushViewController(myPokemonViewController, animated: true)
     }
+
+    func homeViewControllerWantsToShowUsersParty(viewController: HomeViewController) {
+        //
+    }
 }

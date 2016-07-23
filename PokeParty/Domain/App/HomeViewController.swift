@@ -13,6 +13,7 @@ let pokemonString = "Pokémon"
 protocol HomeViewControllerDelegate: class {
     func homeViewControllerWantsToCreateNewParty(viewController: HomeViewController)
     func homeViewControllerWantsToShowUserPokemonList(viewController: HomeViewController)
+    func homeViewControllerWantsToShowUsersParty(viewController: HomeViewController)
 }
 
 class HomeViewController: UIViewController {
@@ -52,6 +53,17 @@ class HomeViewController: UIViewController {
         return button
     }()
 
+    private lazy var myPartyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("My Party", forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightSemibold)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.backgroundColor = UIColor.appTeamColor()
+        button.layer.cornerRadius = 3.0
+        button.addTarget(self, action: #selector(onMyParty), forControlEvents: .TouchUpInside)
+        return button
+    }()
+
     private lazy var createNewPartyButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create a new party", forState: .Normal)
@@ -70,6 +82,7 @@ class HomeViewController: UIViewController {
         setupCircles()
         setupPokemonLabel()
         setupCreateNewPartyButton()
+        setupMyPartyButton()
 
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
@@ -122,6 +135,18 @@ class HomeViewController: UIViewController {
         myPokemonButton.addTarget(self, action: #selector(onMyPokemonButtonTap), forControlEvents: .TouchUpInside)
     }
 
+    private func setupMyPartyButton() {
+        view.addSubview(myPartyButton)
+        myPartyButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activateConstraints([
+            myPartyButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+            myPartyButton.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
+            myPartyButton.heightAnchor.constraintEqualToConstant(120.0),
+            myPartyButton.widthAnchor.constraintEqualToConstant(120.0)
+        ])
+    }
+
     func onMyPokemonButtonTap() {
         delegate?.homeViewControllerWantsToShowUserPokemonList(self)
     }
@@ -140,6 +165,10 @@ class HomeViewController: UIViewController {
 
     func onCreateNewParty() {
         delegate?.homeViewControllerWantsToCreateNewParty(self)
+    }
+
+    func onMyParty() {
+        delegate?.homeViewControllerWantsToShowUsersParty(self)
     }
 
 }

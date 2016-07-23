@@ -30,7 +30,7 @@ class MapViewController: UIViewController {
         mapView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
         mapView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
         
-        CLLocationManager().requestAlwaysAuthorization()
+        CLLocationManager().requestWhenInUseAuthorization()
     }
 
     @objc func mapTap(recognizer: UIGestureRecognizer) {

@@ -21,11 +21,12 @@ class EventClient {
     let apiClient = ApiClient.sharedInstance
     let accountData = AccountDataProviderFactory.userDefaultsAccountDataProvider()
 
-    func create(name: String, completion: EventClientCompletion) {
+    func create(name: String, description: String, completion: EventClientCompletion) {
         let request = apiClient.requestFor(
             EventAction.create,
             queryItems: [
                 NSURLQueryItem(name: "name", value: name),
+                NSURLQueryItem(name: "description", value: description),
                 NSURLQueryItem(name: "owner", value: accountData.userId)
             ]
         )

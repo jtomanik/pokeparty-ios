@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import PokePartyShared
 
 class CreateEventViewController: UIViewController {
+    
+    var onCreateEvent: ((name: String, description: String) -> Void)?
+    
+    lazy var eventTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Create event for party"
+        label.textAlignment = .Center
+        return label
+    }()
 
     lazy var eventNameTextField: UITextField = {
         let textField = UITextField()
@@ -42,7 +53,6 @@ class CreateEventViewController: UIViewController {
         button.layer.borderColor = UIColor.grayColor().CGColor
         button.layer.borderWidth = 2.0
         button.heightAnchor.constraintEqualToConstant(44.0).active = true
-        button.addTarget(self, action: #selector(showLocation), forControlEvents: .TouchUpInside)
         return button
     }()
     
@@ -53,6 +63,7 @@ class CreateEventViewController: UIViewController {
         button.heightAnchor.constraintEqualToConstant(44.0).active = true
         button.backgroundColor = UIColor.grayColor()
         button.tintColor = .whiteColor()
+        button.addTarget(self, action: #selector(goButtonPressed), forControlEvents: .TouchUpInside)
         return button
     }()
     
@@ -62,7 +73,7 @@ class CreateEventViewController: UIViewController {
         $0.axis = .Vertical
         $0.spacing = 10.0
         $0.addArrangedSubviews([
-            self.eventNameTextField, self.eventDescriptionTextField, self.eventLocationButton, self.goButton
+            self.eventTitleLabel, self.eventNameTextField, self.eventDescriptionTextField, self.goButton
             ])
         return $0
     }(UIStackView())
@@ -91,8 +102,11 @@ class CreateEventViewController: UIViewController {
         stackView.bottomAnchor.constraintEqualToAnchor(scrollView.bottomAnchor).active = true
     }
     
-    @objc private func showLocation() {
-        
+    @objc private func goButtonPressed() {
+        guard let name = eventNameTextField.text, description = eventDescriptionTextField.text else {
+            return
+        }
+        onCreateEvent?(name: name, description: description)
     }
 
 }

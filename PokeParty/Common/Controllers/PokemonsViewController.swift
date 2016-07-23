@@ -58,6 +58,7 @@ class PokemonsViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.bottomAnchor.constraintEqualToAnchor(bottomLayoutGuide.topAnchor).active = true
         collectionView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
         collectionView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
+        collectionView.layer.cornerRadius = 4.0
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

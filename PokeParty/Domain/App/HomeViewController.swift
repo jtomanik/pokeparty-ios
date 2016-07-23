@@ -58,10 +58,12 @@ class HomeViewController: UIViewController {
     private lazy var myPartyButton: UIButton = {
         let button = UIButton()
         button.setTitle("My Party", forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightSemibold)
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.backgroundColor = UIColor.appTeamColor()
-        button.layer.cornerRadius = 3.0
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         button.addTarget(self, action: #selector(onMyParty), forControlEvents: .TouchUpInside)
         return button
     }()
@@ -163,7 +165,7 @@ class HomeViewController: UIViewController {
         ])
     }
 
-    private func setupMyPokemonButton() {
+    func setupMyPokemonButton() {
         view.addSubview(myPokemonButton)
         myPokemonButton.translatesAutoresizingMaskIntoConstraints = false
 
@@ -177,7 +179,7 @@ class HomeViewController: UIViewController {
         myPokemonButton.addTarget(self, action: #selector(onMyPokemonButtonTap), forControlEvents: .TouchUpInside)
     }
 
-    private func setupMyPartyButton() {
+    func setupMyPartyButton() {
         view.addSubview(myPartyButton)
         myPartyButton.translatesAutoresizingMaskIntoConstraints = false
 
@@ -187,6 +189,8 @@ class HomeViewController: UIViewController {
             myPartyButton.heightAnchor.constraintEqualToConstant(120.0),
             myPartyButton.widthAnchor.constraintEqualToConstant(120.0)
         ])
+        noPartyPlaceholderLabel.hidden = true
+        createNewPartyButton.hidden = true
     }
 
     func onMyPokemonButtonTap() {

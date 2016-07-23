@@ -14,7 +14,20 @@ class CreateNewPartyCoordinator: NavigationCoordinator {
     private(set) var rootViewController: UIViewController
     var childCoordinators: [Coordinator] = []
 
+    var onClose: (Void -> Void)?
+    var onCreate: (String -> Void)?
+
     init() {
-        rootViewController = NavigationController(rootViewController: CreateNewPartyViewController())
+        let asd = CreateNewPartyViewController()
+
+        rootViewController = NavigationController(rootViewController: asd)
+
+        asd.onClose = { [unowned self] in
+            self.onClose?()
+        }
+
+        asd.onCreate = { [unowned self] name in
+            self.onCreate?(name)
+        }
     }
 }

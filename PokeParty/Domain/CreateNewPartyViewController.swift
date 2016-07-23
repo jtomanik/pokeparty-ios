@@ -13,9 +13,12 @@ class CreateNewPartyViewController: UIViewController {
     private lazy var createNewTeamButton: UIButton = {
         let button = UIButton()
         button.setTitle("Go!", forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightSemibold)
-        button.backgroundColor = UIColor.appTeamColor()
-        button.layer.cornerRadius = 3.0
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         button.addTarget(self, action: #selector(onCreateNewTeam), forControlEvents: .TouchUpInside)
         return button
     }()
@@ -23,9 +26,12 @@ class CreateNewPartyViewController: UIViewController {
     private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.setTitle("Share this", forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightSemibold)
-        button.backgroundColor = UIColor.appTeamColor()
-        button.layer.cornerRadius = 3.0
+        button.setTitleColor(UIColor.appButtonBorderYellowColor(), forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
+        button.layer.cornerRadius = 9.0
+        button.layer.borderWidth = 3.0
+        button.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        button.layer.borderColor = UIColor.appButtonBorderYellowColor().CGColor
         button.addTarget(self, action: #selector(onShare), forControlEvents: .TouchUpInside)
         button.hidden = true
         return button
@@ -35,15 +41,19 @@ class CreateNewPartyViewController: UIViewController {
         let label = UILabel()
         label.text = "Provide party name"
         label.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightSemibold)
+        label.textColor = UIColor.whiteColor()
         return label
     }()
 
     private let partyNameTextField: UITextField = {
         let textfield = UITextField()
-        textfield.font = UIFont.systemFontOfSize(15.0)
-        textfield.layer.borderColor = UIColor.grayColor().CGColor
+
+        textfield.font = UIFont.boldSystemFontOfSize(17.0)
+        textfield.textColor = UIColor.appButtonBorderYellowColor()
+        textfield.backgroundColor = UIColor.appButtonBackgroundBlueColor()
+        textfield.layer.borderColor = UIColor.appTextFieldBorderColor().CGColor
         textfield.layer.borderWidth = 2.0
-        textfield.placeholder = "Insert party name"
+        textfield.layer.cornerRadius = 8.0
         textfield.textAlignment = .Center
         return textfield
     }()
@@ -54,6 +64,9 @@ class CreateNewPartyViewController: UIViewController {
         return stackView
     }()
 
+    var onClose: (Void -> Void)?
+    var onCreate: (String -> Void)?
+
     private let stackView = UIStackView()
 
     override func loadView() {
@@ -61,11 +74,21 @@ class CreateNewPartyViewController: UIViewController {
         view.addSubview(headerLabel)
         view.addSubview(partyNameTextField)
         view.addSubview(buttonsStackView)
-        view.backgroundColor = UIColor.appLightBackgorundColor()
+        view.backgroundColor = UIColor.appSplashScreenBackgroundColor()
 
         setupHeader()
         setupButtons()
         setupPartyNameTextField()
+
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(onCloseView))
+
+    }
+
+    func onCloseView() {
+        onClose?()
     }
 
     private func setupHeader() {
@@ -101,6 +124,12 @@ class CreateNewPartyViewController: UIViewController {
 
     func onCreateNewTeam() {
         //network
+
+        if let text = partyNameTextField.text {
+            onCreate?(text)
+            onClose?()
+        }
+
         shareButton.hidden = !shareButton.hidden
         createNewTeamButton.hidden = !createNewTeamButton.hidden
 

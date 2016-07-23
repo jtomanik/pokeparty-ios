@@ -102,6 +102,8 @@ extension MainCoordinator: PartyViewControllerDelegate {
     }
 
     func partyViewControllerWantsToAddTrainers(viewController: PartyViewController) {
+        let activityViewController = UIActivityViewController(activityItems: ["http://pokeparty.rocks/"], applicationActivities: nil)
+        viewController.presentViewController(activityViewController, animated: true, completion: nil)
         //a
     }
 }
